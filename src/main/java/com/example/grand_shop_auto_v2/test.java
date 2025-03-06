@@ -6,20 +6,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class HelloController {
-    static car car;
-    @FXML
-    private Label welcomeText;
+public class test {
 
     @FXML
-    protected void onHelloButtonClick(ActionEvent event) {
+    void car(ActionEvent event) {
+        System.out.println(HelloController.getCar().getName());
         try {
-            welcomeText.setText("Welcome to JavaFX Application!");
-            car = new car();
-            Parent info = FXMLLoader.load(getClass().getResource("test.fxml"));
+            Parent info = FXMLLoader.load(getClass().getResource("test2.fxml"));
             Scene scene = new Scene(info, 1280, 720);
             Stage info1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
             info1.setScene(scene);
@@ -29,7 +24,5 @@ public class HelloController {
             System.out.println("hi");
         }
     }
-    public static car getCar(){
-        return car;
-    }
+
 }
