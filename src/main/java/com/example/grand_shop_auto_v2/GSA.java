@@ -217,6 +217,8 @@ class accunt {
     public void setPersonalLog(File personalLog) {
         this.personalLog = personalLog;
     }
+
+    //methods
 }
 class customer extends accunt{
     private ArrayList<carPack> card;
@@ -328,9 +330,10 @@ class customer extends accunt{
     public void removeFromFavouriteCard(carPack carPack){
         removeFromFavouriteCard(carPack.getCar());
     }
+    //methods
 }
 class admin extends accunt{
-
+    //methods
 }
 class carBrand {
     private ArrayList<carPack> brandList;
@@ -662,6 +665,7 @@ class abdoll{
         if (userFlag && passFlag && rePassFlag && nameFlag && lNameFlag && addFlag && idFlag && phoneFlag && birthFlag) {
             int dateOfBirstInNumber=(dateOfBirst.charAt(0)-48)*1000_00_00+(dateOfBirst.charAt(1)-48)* 100_00_00 +(dateOfBirst.charAt(2)-48)*10_00_00+(dateOfBirst.charAt(3)-48)*1_00_00+(dateOfBirst.charAt(5)-48)*10_00+(dateOfBirst.charAt(6)-48)*1_00+(dateOfBirst.charAt(8)-48)*10+(dateOfBirst.charAt(9)-48);
             currentAcc=new customer(userName,password,name,lastName,address,dateOfBirstInNumber,Long.parseLong(id),Long.parseLong(phoneNumber));
+            addAccToAllAccounts(currentAcc);
         }
         return errorList;
     }
@@ -712,19 +716,31 @@ class abdoll{
             loadAllAccounts();
         if(allAccounts.isEmpty()){
             allAccounts.add(accunt);
-        }else{
-            if(allAccounts.getFirst().getUserName().compareTo(accunt.getUserName())>0){
-                for(int i=0;!result&&i<allAccounts.size();i++){
-                    if(allAccounts.get(i).getUserName().compareTo(accunt.getUserName())<=0) {
-                        result = true;
-                        allAccounts.add(i,accunt);
+        }else {
+            if(accunt.getUserName().compareTo(allAccounts.getFirst().getUserName())<0){
+                allAccounts.addFirst(accunt);
+            }else if(accunt.getUserName().compareTo(allAccounts.get(allAccounts.size()-1).getUserName())>0){
+                allAccounts.add(accunt);
+            }else {
+                int top = allAccounts.size() - 1;
+                int bottom = 0;
+                int mid = (top + bottom) / 2;
+                while (!result && bottom <= top) {
+                    if (mid + 1 < allAccounts.size()) {
+                        if (accunt.getUserName().compareTo(allAccounts.get(mid).getUserName()) >= 0 && accunt.getUserName().compareTo(allAccounts.get(mid + 1).getUserName()) <= 0) {
+                            result = true;
+                            allAccounts.add(mid + 1, accunt);
+                        } else if (allAccounts.get(mid).getUserName().compareTo(accunt.getUserName()) > 0) {
+                            top = mid - 1;
+                            mid = (top + bottom) / 2;
+                        } else {
+                            bottom = mid + 1;
+                            mid = (top + bottom) / 2;
+                        }
+                    } else {
+                        allAccounts.add(mid, accunt);
                     }
                 }
-                if(!result){
-                    allAccounts.add(accunt);
-                }
-            }else{
-                allAccounts.addFirst(accunt);
             }
         }
     }
