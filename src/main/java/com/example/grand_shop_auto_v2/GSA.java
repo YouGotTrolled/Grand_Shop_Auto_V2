@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class GSA extends Application {
@@ -38,7 +37,6 @@ class car {
     private long price;
     private boolean availability;
     private File picture;
-
     //Constructors
     public car(String name, String brand, String detail, int year, long price, boolean availability, File picture) {
         this.name = name;
@@ -49,68 +47,69 @@ class car {
         this.availability = availability;
         this.picture= picture;
     }
-
     public car(String name, String brand,String detail, int year, long price) {
         this(name,brand,detail,year,price,true,new File(".\\systemFiles\\carPictures\\"+name+".png"));
     }
-
     public car(String name) {
         this(name, "Null","null",2000, 1_000_000_000, true,new File(".\\systemFiles\\carPictures\\"+name+".png"));
     }
-
     public car() {
         this("testCar", "Null","null",2000, 1_000_000_000, true,new File(".\\systemFiles\\carPictures\\testCar.png"));
     }
-
     // Getter and Setter for name
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
+    // Getter and Setter for detail
+    public String getDetail() {
+        return detail;
+    }
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
     // Getter and Setter for brand
     public String getBrand() {
         return brand;
     }
-
     public void setBrand(String brand) {
         this.brand = brand;
     }
-
     // Getter and Setter for year
     public int getYear() {
         return year;
     }
-
     public void setYear(int year) {
         this.year = year;
     }
-
     // Getter and Setter for price
     public long getPrice() {
         return price;
     }
-
     public void setPrice(long price) {
         this.price = price;
     }
-
     // Getter and Setter for availability
     public boolean isAvailability() {
         return availability;
     }
-
     public void setAvailability(boolean availability) {
         this.availability = availability;
+    }
+    // Getter and Setter for picture
+    public File getPicture() {
+        return picture;
+    }
+    public void setPicture(File picture) {
+        this.picture = picture;
     }
     //methods
     public boolean equals(Object o){
         boolean result=false;
         car tempCar=(car)o;
-        if(name.equals(tempCar.getName())&&year==tempCar.getYear()&&brand.equals(tempCar.getBrand())&&price==tempCar.getPrice())
+        if(name.equals(tempCar.getName())&&year==tempCar.getYear()&&brand.equals(tempCar.getBrand())&&price==tempCar.getPrice()&&detail.equals(tempCar.getDetail()))
             result=true;
         return result;
     }
@@ -362,22 +361,24 @@ class carBrand {
     private String brandName;
     private String brandOwnerName;
     private String brandCountry;
+    private String brandDetail;
     private int year;
     private File brandIcon;
 
     // Constructors
-    public carBrand(String brandName, String brandOwnerName, String brandCountry, int year, File brandIcon) {
+    public carBrand(String brandName, String brandOwnerName, String brandCountry, String brandDetail, int year, File brandIcon) {
         this.brandName = brandName;
         this.brandOwnerName = brandOwnerName;
         this.brandCountry = brandCountry;
         this.year = year;
         this.brandIcon = brandIcon;
+        this.brandDetail=brandDetail;
     }
-    public carBrand(String brandName, String brandOwnerName, String brandCountry, int year){
-        this(brandName,brandOwnerName,brandCountry,year,new File(".\\systemFiles\\brandIcons\\"+brandName+".png"));
+    public carBrand(String brandName, String brandOwnerName, String brandCountry, String brandDetail, int year){
+        this(brandName,brandOwnerName,brandCountry,brandDetail,year,new File(".\\systemFiles\\brandIcons\\"+brandName+".png"));
     }
     public carBrand(){
-        this("defaultName","defaultOwnerName","defaultCountry",2000,new File(".\\systemFiles\\brandIcons\\defaultName.png"));
+        this("defaultName","defaultOwnerName","defaultCountry","idk",2000,new File(".\\systemFiles\\brandIcons\\defaultName.png"));
     }
     // Getter and Adder and Remover for brandList
     public ArrayList<carPack> getBrandList() {
@@ -422,6 +423,13 @@ class carBrand {
     public void setBrandCountry(String brandCountry) {
         this.brandCountry = brandCountry;
     }
+    // Getter and Setter for brandDetail
+    public String getBrandDetail() {
+        return brandDetail;
+    }
+    public void setBrandDetail(String brandDetail) {
+        this.brandDetail = brandDetail;
+    }
     // Getter and Setter for year
     public int getYear() {
         return year;
@@ -448,9 +456,6 @@ class Abdoll {
         System.out.println("starting");
         lastPageName=new ArrayList<>();
         //add the main menu first
-    }
-    public static void say(){
-        System.out.println(lastPageName);
     }
     public static void goBack(ActionEvent event){
         if(lastPageName.size()>1){
@@ -908,5 +913,182 @@ class Abdoll {
             }
         }
         return result;
+    }
+    public static String[] createNewCar(String name,String brand,String detail,String year,String price,String availability,String quantity) {
+        //flags
+        boolean nameFlag = true;
+        boolean brandFlag = true;
+        boolean detailFlag = true;
+        boolean yearFlag = true;
+        boolean priceFlag = true;
+        boolean availabilityFlag = true;
+        boolean quantityFlag = true;
+        //variable
+        String[] errorList = new String[8];
+        for (String s : errorList) {
+            s="";
+        }
+        int index=-1;
+        /*
+        0_allError
+        1_nameError
+        2_brandError
+        3_detailError
+        4_yearError
+        5_priceError
+        6_availabilityError
+        7_quantityError
+        */
+        //nameFlag
+        if (name.isEmpty()) {
+            nameFlag = false;
+            errorList[1] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //brandFlag
+        if (brand.isEmpty()) {
+            brandFlag = false;
+            errorList[2] = "فیلد خالی است";
+            errorList[0] = "error";
+        }else{
+            index=allBrand.stream().map(o->o.getBrandName()).collect(Collectors.toList()).indexOf(brand);
+            if(index==-1){
+                brandFlag = false;
+                errorList[2] = "این برند در سیستم موجود نیست";
+                errorList[0] = "error";
+            }
+        }
+        //detailFlag
+        if (detail.isEmpty()) {
+            detailFlag = false;
+            errorList[3] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //yearFlag
+        if (year.isEmpty()) {
+            yearFlag = false;
+            errorList[4] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            yearFlag = !(charCheckOut(year, 57, 48));
+            if (!yearFlag) {
+                errorList[4] = "سال تولید فقط باید عدد باشد";
+                errorList[0] = "error";
+            } else if (year.length() != 4) {
+                yearFlag = false;
+                errorList[4] = "سال تولید فقط باید 4 رقم باشد";
+                errorList[0] = "error";
+            }
+        }
+        //priceFlag
+        if (price.isEmpty()) {
+            priceFlag = false;
+            errorList[5] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            priceFlag = !(charCheckOut(price, 57, 48));
+            if (!priceFlag) {
+                errorList[5] = "سال تولید فقط باید عدد باشد";
+                errorList[0] = "error";
+            }
+        }
+        //availabilityFlag
+        if (availability.isEmpty()) {
+            availabilityFlag = false;
+            errorList[6] = "فیلد خالی است";
+            errorList[0] = "error";
+        }else if(!(availability.equals("true")||availability.equals("false"))) {
+            availabilityFlag = false;
+            errorList[6] = "فیلد مشکل دارد";
+            errorList[0] = "error";
+        }
+        //quantityFlag
+        if (quantity.isEmpty()) {
+            quantityFlag = false;
+            errorList[7] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            quantityFlag = !(charCheckOut(year, 57, 48));
+            if (!quantityFlag) {
+                errorList[7] = "سال تولید فقط باید عدد باشد";
+                errorList[0] = "error";
+            }
+        }
+        //
+        if (nameFlag && brandFlag && detailFlag && yearFlag && priceFlag && availabilityFlag && quantityFlag) {
+            allBrand.get(index).getBrandList().add(new carPack(new car(name,brand,detail,Integer.parseInt(year),Long.parseLong(price)),Integer.parseInt(quantity)));
+            allCars.add(allBrand.get(index).getBrandList().getLast());
+            addAccToAllAccounts(currentAcc);
+            logThisMessageInPersonalLog("created a car named"+name);
+        }
+        return errorList;
+    }
+    public static String[] createNewCar(String brandName,String brandOwnerName,String brandCountry,String brandDetail,String year) {
+        //flags
+        boolean brandNameFlag = true;
+        boolean brandOwnerFlag = true;
+        boolean brandCountryFlag = true;
+        boolean brandDetailFlag = true;
+        boolean yearFlag = true;
+        //variable
+        String[] errorList = new String[6];
+        for (String s : errorList) {
+            s="";
+        }
+        /*
+        0_allError
+        1_brandNameError
+        2_brandOwnerNameError
+        3_brandCountryError
+        4_brandDetailError
+        5_yearError
+        */
+        //brandNameFlag
+        if (brandName.isEmpty()) {
+            brandNameFlag = false;
+            errorList[1] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //brandOwnerFlag
+        if (brandOwnerName.isEmpty()) {
+            brandOwnerFlag = false;
+            errorList[2] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //brandCountryFlag
+        if (brandCountry.isEmpty()) {
+            brandCountryFlag = false;
+            errorList[3] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //brandDetailFlag
+        if (brandDetail.isEmpty()) {
+            brandDetailFlag = false;
+            errorList[4] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //yearFlag
+        if (year.isEmpty()) {
+            yearFlag = false;
+            errorList[5] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            yearFlag = !(charCheckOut(year, 57, 48));
+            if (!yearFlag) {
+                errorList[5] = "سال تولید فقط باید عدد باشد";
+                errorList[0] = "error";
+            } else if (year.length() != 4) {
+                yearFlag = false;
+                errorList[5] = "سال تولید فقط باید 4 رقم باشد";
+                errorList[0] = "error";
+            }
+        }
+        //
+        if (brandNameFlag && brandOwnerFlag && brandCountryFlag && brandDetailFlag && yearFlag) {
+            allBrand.add(new carBrand(brandName,brandOwnerName,brandCountry,brandDetail,Integer.parseInt(year)));
+            addAccToAllAccounts(currentAcc);
+            logThisMessageInPersonalLog("created a brand named"+brandName);
+        }
+        return errorList;
     }
 }
