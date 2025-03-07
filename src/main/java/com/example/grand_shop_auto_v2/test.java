@@ -12,17 +12,10 @@ public class test {
 
     @FXML
     void car(ActionEvent event) {
-        System.out.println(HelloController.getCar().getName());
-        try {
-            Parent info = FXMLLoader.load(getClass().getResource("test2.fxml"));
-            Scene scene = new Scene(info, 1280, 720);
-            Stage info1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            info1.setScene(scene);
-            info1.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("hi");
-        }
+        Abdoll.goTo("test2",event);
+        Abdoll.say();
+        System.out.println("test\n___");
+
     }
 
 }

@@ -1,15 +1,20 @@
 package com.example.grand_shop_auto_v2;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class GSA extends Application {
     @Override
@@ -28,29 +33,33 @@ public class GSA extends Application {
 class car {
     private String name;
     private String brand;
+    private String detail;
     private int year;
     private long price;
     private boolean availability;
+    private File picture;
 
     //Constructors
-    public car(String name, String brand, int year, long price, boolean availability) {
+    public car(String name, String brand, String detail, int year, long price, boolean availability, File picture) {
         this.name = name;
         this.brand = brand;
+        this.detail= detail;
         this.year = year;
         this.price = price;
         this.availability = availability;
+        this.picture= picture;
     }
 
-    public car(String name, String brand, int year, long price) {
-        this(name, brand,year, price, true);
+    public car(String name, String brand,String detail, int year, long price) {
+        this(name,brand,detail,year,price,true,new File(".\\systemFiles\\carPictures\\"+name+".png"));
     }
 
     public car(String name) {
-        this(name, "Null",2000, 1_000_000_000, true);
+        this(name, "Null","null",2000, 1_000_000_000, true,new File(".\\systemFiles\\carPictures\\"+name+".png"));
     }
 
     public car() {
-        this("testCar", "Null",2000, 1_000_000_000, true);
+        this("testCar", "Null","null",2000, 1_000_000_000, true,new File(".\\systemFiles\\carPictures\\testCar.png"));
     }
 
     // Getter and Setter for name
@@ -233,6 +242,9 @@ class customer extends accunt{
         this.chatFile=chatFile;
         this.address = address;
         this.balance = balance;
+        card=new ArrayList<>();
+        purchaseHistory=new ArrayList<>();
+        favouriteCard=new ArrayList<>();
     }
     public customer(String userName, String password, String name, String lastName, String address, int dateOfBirth, long id, long phoneNumber) {
         this(userName,password,name,lastName,address,dateOfBirth,id,phoneNumber,0,new File(".\\systemFiles\\userLog\\"+userName+".txt"),new File(".\\systemFiles\\userChat\\"+userName+".txt"));
@@ -241,7 +253,7 @@ class customer extends accunt{
         this(userName,password,name,lastName,address,dateOfBirth,id,phoneNumber,balance,new File(".\\systemFiles\\userLog\\"+userName+".txt"),new File(".\\systemFiles\\userChat\\"+userName+".txt"));
     }
     public customer(){
-        this("defaultUserName","1234","defaultName","defaultLastName","iran",1350_1_1,1,1,0,new File(".\\systemFiles\\userLog\\defaultUserNameLog.txt"),new File(".\\systemFiles\\userChat\\defaultUserNameLog.txttxt"));
+        this("defaultUserName","1234","defaultName","defaultLastName","iran",1350_1_1,1,1,0,new File(".\\systemFiles\\userLog\\defaultUserNameLog.txt"),new File(".\\systemFiles\\userChat\\defaultUserNameLog.txt"));
     }
     // Getter and Setter for balance
     public long getBalance() {
@@ -269,7 +281,12 @@ class customer extends accunt{
         return card;
     }
     public void addToCard(carPack carPack){
-        card.add(carPack);
+        int i=card.stream().map(o1->o1.getCar()).collect(Collectors.toList()).indexOf(carPack.getCar());
+        if(i!=-1){
+            card.get(i).setQuantity((card.get(i).getQuantity())+1);
+        }else {
+            card.add(carPack);
+        }
     }
     public void removeFromCard(int i){
         card.remove(i);
@@ -313,7 +330,8 @@ class customer extends accunt{
         return favouriteCard;
     }
     public void addToFavouriteCard(car car){
-        favouriteCard.add(car);
+        if(!favouriteCard.contains(car))
+            favouriteCard.add(car);
     }
     public void removeFromFavouriteCard(int i){
         favouriteCard.remove(i);
@@ -329,6 +347,10 @@ class customer extends accunt{
     }
     public void removeFromFavouriteCard(carPack carPack){
         removeFromFavouriteCard(carPack.getCar());
+    }
+    //Remover for chatFile
+    public void deleteChatHistory(){
+        chatFile.delete();
     }
     //methods
 }
@@ -415,13 +437,55 @@ class carBrand {
         this.brandIcon = brandIcon;
     }
 }
-class abdoll{
+class Abdoll {
     private static accunt currentAcc;
     private static ArrayList<carPack> allCars;
     private static ArrayList<carBrand> allBrand;
-    //allCars is reading allBrand and dumping it in it self
+    //allCars is reading allBrand and dumping it in itself
     private static ArrayList<accunt> allAccounts;
+    private static ArrayList<String> lastPageName;
+    static {
+        System.out.println("starting");
+        lastPageName=new ArrayList<>();
+        //add the main menu first
+    }
+    public static void say(){
+        System.out.println(lastPageName);
+    }
+    public static void goBack(ActionEvent event){
+        if(lastPageName.size()>1){
+            try {
+                Parent parent = FXMLLoader.load(GSA.class.getResource(lastPageName.get(lastPageName.size()-2)+".fxml"));
+                Scene scene = new Scene(parent, 1280, 720);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+                lastPageName.removeLast();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public static void goTo(String pageName,ActionEvent event){
+        try {
+            Parent parent = FXMLLoader.load(GSA.class.getResource(pageName+".fxml"));
+            Scene scene = new Scene(parent, 1280, 720);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+            lastPageName.add(pageName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public static void loadAllCars(){
+        try{
+            ObjectInputStream in=new ObjectInputStream(new FileInputStream(".\\systemFiles\\allBrand.dat"));
+            allBrand=(ArrayList<carBrand>)in.readObject();
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         allCars=new ArrayList<>();
         for(int i=0;i<allBrand.size();i++){
             for(int j=0;i<allBrand.get(i).getBrandList().size();j++) {
@@ -430,13 +494,32 @@ class abdoll{
         }
     }
     public static void loadAllAccounts(){
-        allAccounts=new ArrayList<>();
         try{
-
+            ObjectInputStream in=new ObjectInputStream(new FileInputStream(".\\systemFiles\\allAccounts.dat"));
+            allAccounts=(ArrayList<accunt>)in.readObject();
+            in.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
         allAccounts.sort(Comparator.comparing(accunt::getUserName));
+    }
+    public static void saveAllCarBrands(){
+        try{
+            ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream(".\\systemFiles\\allBrand.dat"));
+            out.writeObject(allBrand);
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveAllAccounts(){
+        try{
+            ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream(".\\systemFiles\\allAccounts.dat"));
+            out.writeObject(allAccounts);
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     public static String[] checkLogIn(String userName,String password){
         //variable
@@ -471,6 +554,7 @@ class abdoll{
                 if(allAccounts.get(index).getPassword().equals(password)) {
                     currentAcc = allAccounts.get(index);
                     errorList[0]="enter";
+                    logThisMessageInPersonalLog("user loged in");
                 }else{
                     errorList[0]="رمز عبور اشتباه است";
                 }
@@ -666,24 +750,23 @@ class abdoll{
             int dateOfBirstInNumber=(dateOfBirst.charAt(0)-48)*1000_00_00+(dateOfBirst.charAt(1)-48)* 100_00_00 +(dateOfBirst.charAt(2)-48)*10_00_00+(dateOfBirst.charAt(3)-48)*1_00_00+(dateOfBirst.charAt(5)-48)*10_00+(dateOfBirst.charAt(6)-48)*1_00+(dateOfBirst.charAt(8)-48)*10+(dateOfBirst.charAt(9)-48);
             currentAcc=new customer(userName,password,name,lastName,address,dateOfBirstInNumber,Long.parseLong(id),Long.parseLong(phoneNumber));
             addAccToAllAccounts(currentAcc);
+            logThisMessageInPersonalLog("Wellcom");
         }
         return errorList;
     }
     private static boolean charCheck(String a, int b, int c) {
         boolean an = false;
         for (int i = 0; (!an) && i < a.length(); i++) {
-            if ((int) a.charAt(i) >= b && (int) a.charAt(i) <= c) {
+            if ((int) a.charAt(i) >= b && (int) a.charAt(i) <= c)
                 an = true;
-            }
         }
         return an;
     }
     private static boolean charCheckOut(String a, int b, int c) {
         boolean an = false;
         for (int i = 0; (!an) && i < a.length(); i++) {
-            if ((int) a.charAt(i) > b || (int) a.charAt(i) < c) {
+            if ((int) a.charAt(i) > b || (int) a.charAt(i) < c)
                 an = true;
-            }
         }
         return an;
     }
@@ -743,5 +826,87 @@ class abdoll{
                 }
             }
         }
+    }
+    public static String customerSendChatMessage(String message){
+        message= "("+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+")"+currentAcc.getName()+":"+message;
+        try{
+            PrintWriter printWriter=new PrintWriter(new FileOutputStream(((customer)(currentAcc)).getChatFile().getAbsolutePath(),true));
+            printWriter.println(message);
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        logThisMessageInPersonalLog("send a message");
+        return message;
+    }
+    public static String adminSendChatMessage(String message,accunt accunt){
+        message= "("+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+")Admin:"+message;
+        try{
+            PrintWriter printWriter=new PrintWriter(new FileOutputStream(((customer)(accunt)).getChatFile().getAbsolutePath(),true));
+            printWriter.println(message);
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        logThisMessageInPersonalLog("send message to"+accunt.getUserName());
+        return message;
+    }
+    public static void logThisMessageInPersonalLog(String message){
+        logThisMessageInSystemLog(message);
+        message= "("+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+")"+currentAcc.getName()+":"+message;
+        try{
+            PrintWriter printWriter=new PrintWriter(new FileOutputStream(((customer)(currentAcc)).getPersonalLog().getAbsolutePath(),true));
+            printWriter.println(message);
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void logThisMessageInSystemLog(String message){
+        message= "("+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+")"+currentAcc.getName()+":"+message;
+        try{
+            PrintWriter printWriter=new PrintWriter(new FileOutputStream(".\\systemFiles\\systemLog.txt",true));
+            printWriter.println(message);
+            printWriter.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static String customerBuyTheCard(){
+        long allPrice=0;
+        ArrayList<carPack> card=((customer) currentAcc).getCard();
+        String result="";
+        boolean flag=true;
+        int[] index=new int[card.size()];
+        if(card.isEmpty()){
+            result="صبد خرید خالی است";
+        }else {
+            for (int i = 0; flag && i < card.size(); i++) {
+                allPrice += card.get(i).getQuantity() * card.get(i).getCar().getPrice();
+                index[i]=card.stream().map(o->o.getCar()).collect(Collectors.toList()).indexOf(card.get(i).getCar());
+                if (card.get(i).getQuantity() > allCars.get(index[i]).getQuantity()) {
+                    flag = false;
+                    result = "در انبار کم است" + card.get(i).getCar().getName() + "تعداد خودرو ی";
+                } else if (!allCars.get(index[i]).getCar().isAvailability()) {
+                    flag = false;
+                    result = "در انبار موجود نیست" + card.get(i).getCar().getName() + "خودرو ی";
+                }
+            }
+            if (flag && ((customer) currentAcc).getBalance() >= allPrice) {
+                int temp=0;
+                while (!card.isEmpty()) {
+                    int q=allCars.get(index[temp]).getQuantity()-card.getFirst().getQuantity();
+                    allCars.get(index[temp]).setQuantity(q);
+                    if(q==0){
+                        allCars.get(index[temp++]).getCar().setAvailability(false);
+                    }
+                    ((customer) currentAcc).addToPurchaseHistory(card.getFirst());
+                    ((customer) currentAcc).removeFromCard(0);
+                }
+                ((customer) currentAcc).setBalance(((customer) currentAcc).getBalance()-allPrice);
+                result="خرید با موفقیت انجام شد";
+            }
+        }
+        return result;
     }
 }

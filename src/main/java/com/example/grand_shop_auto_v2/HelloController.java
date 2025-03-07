@@ -19,11 +19,7 @@ public class HelloController {
         try {
             welcomeText.setText("Welcome to JavaFX Application!");
             car = new car();
-            Parent info = FXMLLoader.load(getClass().getResource("test.fxml"));
-            Scene scene = new Scene(info, 1280, 720);
-            Stage info1 = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            info1.setScene(scene);
-            info1.show();
+            Abdoll.goTo("test",event);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("hi");

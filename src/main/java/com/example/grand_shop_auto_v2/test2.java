@@ -12,12 +12,10 @@ public class test2 {
 
     @FXML
     void car(ActionEvent event) {
-        System.out.println(HelloController.getCar().getName());
-        try {
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("hi");
-        }
+        Abdoll.goBack(event);
+        Abdoll.say();
+        System.out.println("kk\n____");
+
     }
 
 }
