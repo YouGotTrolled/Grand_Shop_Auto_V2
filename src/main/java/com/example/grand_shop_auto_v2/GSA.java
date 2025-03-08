@@ -18,7 +18,14 @@ import java.util.stream.Collectors;
 public class GSA extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(GSA.class.getResource("hello-view.fxml"));
+        //
+        Abdoll.loadAllCars();
+        Abdoll.loadAllAccounts();
+        if(!(Abdoll.getAllAccounts().stream().map(o->o.getUserName()).collect(Collectors.toList())).contains("admin")){
+            Abdoll.getAllAccounts().add(new admin());
+        }
+        //
+        FXMLLoader fxmlLoader = new FXMLLoader(GSA.class.getResource("temp.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setTitle("GSA");
         stage.setScene(scene);
@@ -29,7 +36,7 @@ public class GSA extends Application {
         launch();
     }
 }
-class car {
+class car implements Serializable{
     private String name;
     private String brand;
     private String detail;
@@ -114,7 +121,7 @@ class car {
         return result;
     }
 }
-class carPack{
+class carPack implements Serializable{
     private car carName;
     private int quantity;
     //Constructors
@@ -140,7 +147,7 @@ class carPack{
         this.quantity=quantity;
     }
 }
-class accunt {
+class accunt implements Serializable{
     private String userName;
     private String password;
     private String name;
@@ -354,9 +361,19 @@ class customer extends accunt{
     //methods
 }
 class admin extends accunt{
+    //Constructors
+    public admin(String userName,String password,String name,String lastName,int dateOfBirth,long id,long phoneNumber,File personalLog) {
+        super(userName,password,name,lastName,dateOfBirth,id,phoneNumber,personalLog);
+    }
+    public admin(String userName, String password, String name, String lastName,int dateOfBirth, long id, long phoneNumber) {
+        this(userName,password,name,lastName,dateOfBirth,id,phoneNumber,new File(".\\systemFiles\\userLog\\"+userName+".txt"));
+    }
+    public admin(){
+        this("admin","1234","MohammadAmin","Abdollahnia",1384_12_28,1,9123456789L,new File(".\\systemFiles\\userLog\\admin.txt"));
+    }
     //methods
 }
-class carBrand {
+class carBrand implements Serializable{
     private ArrayList<carPack> brandList;
     private String brandName;
     private String brandOwnerName;
@@ -455,8 +472,52 @@ class Abdoll {
     static {
         System.out.println("starting");
         lastPageName=new ArrayList<>();
+        allAccounts=new ArrayList<>();
+        allBrand=new ArrayList<>();
+        lastPageName.add("temp");
         //add the main menu first
     }
+    //Getters and Setters
+    public static accunt getCurrentAcc() {
+        return currentAcc;
+    }
+
+    public static void setCurrentAcc(accunt currentAcc) {
+        Abdoll.currentAcc = currentAcc;
+    }
+
+    public static ArrayList<carPack> getAllCars() {
+        return allCars;
+    }
+
+    public static void setAllCars(ArrayList<carPack> allCars) {
+        Abdoll.allCars = allCars;
+    }
+
+    public static ArrayList<carBrand> getAllBrand() {
+        return allBrand;
+    }
+
+    public static void setAllBrand(ArrayList<carBrand> allBrand) {
+        Abdoll.allBrand = allBrand;
+    }
+
+    public static ArrayList<accunt> getAllAccounts() {
+        return allAccounts;
+    }
+
+    public static void setAllAccounts(ArrayList<accunt> allAccounts) {
+        Abdoll.allAccounts = allAccounts;
+    }
+
+    public static ArrayList<String> getLastPageName() {
+        return lastPageName;
+    }
+
+    public static void setLastPageName(ArrayList<String> lastPageName) {
+        Abdoll.lastPageName = lastPageName;
+    }
+    //methods
     public static void goBack(ActionEvent event){
         if(lastPageName.size()>1){
             try {
@@ -472,13 +533,16 @@ class Abdoll {
         }
     }
     public static void goTo(String pageName,ActionEvent event){
+        goToWithNoFootPrint(pageName,event);
+        lastPageName.add(pageName);
+    }
+    public static void goToWithNoFootPrint(String pageName,ActionEvent event){
         try {
             Parent parent = FXMLLoader.load(GSA.class.getResource(pageName+".fxml"));
             Scene scene = new Scene(parent, 1280, 720);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
-            lastPageName.add(pageName);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -506,7 +570,7 @@ class Abdoll {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        allAccounts.sort(Comparator.comparing(accunt::getUserName));
+        //allAccounts.sort(Comparator.comparing(accunt::getUserName));
     }
     public static void saveAllCarBrands(){
         try{
@@ -613,7 +677,7 @@ class Abdoll {
                 }
             }
         }
-        if (userFlag && isUserNameUsed(userName)==-1) {
+        if (userFlag && isUserNameUsed(userName)!=-1) {
             userFlag = false;
             errorList[3] = "نام کاربری تکراری است";
             errorList[0] = "error";
@@ -1023,7 +1087,7 @@ class Abdoll {
         }
         return errorList;
     }
-    public static String[] createNewCar(String brandName,String brandOwnerName,String brandCountry,String brandDetail,String year) {
+    public static String[] createNewBrand(String brandName,String brandOwnerName,String brandCountry,String brandDetail,String year) {
         //flags
         boolean brandNameFlag = true;
         boolean brandOwnerFlag = true;
