@@ -12,7 +12,6 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class GSA extends Application {
@@ -24,9 +23,17 @@ public class GSA extends Application {
         if(!(Abdoll.getAllAccounts().stream().map(o->o.getUserName()).collect(Collectors.toList())).contains("admin")){
             Abdoll.getAllAccounts().add(new admin());
         }
+        //Files
+        (new File(".\\systemFiles")).mkdir();
+        (new File(".\\systemFiles\\carPictures")).mkdir();
+        (new File(".\\systemFiles\\brandIcons")).mkdir();
+        (new File(".\\systemFiles\\userLog")).mkdir();
+        (new File(".\\systemFiles\\allBrand.dat")).createNewFile();
+        (new File(".\\systemFiles\\allAccounts.dat")).createNewFile();
         //
         FXMLLoader fxmlLoader = new FXMLLoader(GSA.class.getResource("temp.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
+        stage.setResizable(false);
         stage.setTitle("GSA");
         stage.setScene(scene);
         stage.show();
@@ -390,6 +397,7 @@ class carBrand implements Serializable{
         this.year = year;
         this.brandIcon = brandIcon;
         this.brandDetail=brandDetail;
+        brandList=new ArrayList<>();
     }
     public carBrand(String brandName, String brandOwnerName, String brandCountry, String brandDetail, int year){
         this(brandName,brandOwnerName,brandCountry,brandDetail,year,new File(".\\systemFiles\\brandIcons\\"+brandName+".png"));
@@ -924,7 +932,7 @@ class Abdoll {
         logThisMessageInSystemLog(message);
         message= "("+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+")"+currentAcc.getName()+":"+message;
         try{
-            PrintWriter printWriter=new PrintWriter(new FileOutputStream(((customer)(currentAcc)).getPersonalLog().getAbsolutePath(),true));
+            PrintWriter printWriter=new PrintWriter(new FileOutputStream((currentAcc).getPersonalLog().getAbsolutePath(),true));
             printWriter.println(message);
             printWriter.close();
         } catch (Exception e) {
@@ -1082,7 +1090,6 @@ class Abdoll {
         if (nameFlag && brandFlag && detailFlag && yearFlag && priceFlag && availabilityFlag && quantityFlag) {
             allBrand.get(index).getBrandList().add(new carPack(new car(name,brand,detail,Integer.parseInt(year),Long.parseLong(price)),Integer.parseInt(quantity)));
             allCars.add(allBrand.get(index).getBrandList().getLast());
-            addAccToAllAccounts(currentAcc);
             logThisMessageInPersonalLog("created a car named"+name);
         }
         return errorList;
@@ -1150,7 +1157,6 @@ class Abdoll {
         //
         if (brandNameFlag && brandOwnerFlag && brandCountryFlag && brandDetailFlag && yearFlag) {
             allBrand.add(new carBrand(brandName,brandOwnerName,brandCountry,brandDetail,Integer.parseInt(year)));
-            addAccToAllAccounts(currentAcc);
             logThisMessageInPersonalLog("created a brand named"+brandName);
         }
         return errorList;

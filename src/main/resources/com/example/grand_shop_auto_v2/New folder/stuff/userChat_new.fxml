@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #314953;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grandshopauto.UserChatNew">
+   <children>
+      <TextArea layoutX="91.0" layoutY="188.0" prefHeight="350.0" prefWidth="1080.0" style="-fx-background-color: #1E2C31;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="220.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <TextField layoutX="214.4" layoutY="610.4" prefHeight="50.0" prefWidth="858.0" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="610.0" />
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="100.0">
+         <image>
+            <Image url="@../../../4812459.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="99.0" layoutY="610.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" text="🗑️" AnchorPane.bottomAnchor="59.6" AnchorPane.leftAnchor="99.0" />
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1013.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="100.0">
+         <image>
+            <Image url="@../../../5582878.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="109.0" layoutY="620.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" text="Button" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="100.0" />
+      <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" text="Button" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="240.0" />
+      <ComboBox layoutX="567.0" layoutY="137.0" prefHeight="35.0" prefWidth="480.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="125.0" />
+      <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button alignment="CENTER" layoutX="36.0" layoutY="13.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.bottomAnchor="2.6000000000000014" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="2.0" />
+            <Button alignment="CENTER" layoutX="1220.0" layoutY="12.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.bottomAnchor="2.6000000000000014" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="2.0" />
+            <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="1224.0" layoutY="40.0" scaleX="3.0" scaleY="3.0" AnchorPane.leftAnchor="1235.0" AnchorPane.topAnchor="18.0" />
+            <FontAwesomeIcon fill="WHITE" glyphName="MINUS" layoutX="1161.0" layoutY="33.0" scaleX="3.0" scaleY="3.0" AnchorPane.leftAnchor="1170.0" AnchorPane.topAnchor="20.714285850524902" />
+            <Button alignment="CENTER" layoutX="1155.0" layoutY="12.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.bottomAnchor="2.6000000000000014" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0" />
+            <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" layoutX="30.0" layoutY="29.0" scaleX="3.0" scaleY="3.0" wrappingWidth="13.485705375671387" AnchorPane.leftAnchor="36.0">
+               <font>
+                  <Font name="System Bold" size="51.0" />
+               </font>
+            </FontAwesomeIcon>
+         </children>
+      </AnchorPane>
+      <FontAwesomeIcon fill="WHITE" glyphName="REFRESH" layoutX="1117.0" layoutY="269.0" scaleX="2.5" scaleY="2.5" AnchorPane.topAnchor="257.5999994277954" />
+      <FontAwesomeIcon fill="WHITE" glyphName="TRASH" layoutX="120.0" layoutY="639.0" scaleX="3.0" scaleY="3.0" />
+      <FontAwesomeIcon fill="WHITE" glyphName="SEND" layoutX="1149.0" layoutY="639.0" scaleX="2.0" scaleY="2.0" AnchorPane.leftAnchor="1144.0" />
+   </children>
+</AnchorPane>

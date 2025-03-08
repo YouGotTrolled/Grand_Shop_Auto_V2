@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #314953;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grandshopauto.InfoadminNew">
+   <children>
+      <HBox layoutX="540.0" layoutY="-9.0" prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="تاریخ تولد" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="250.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="نشانی منزل" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="885.0" AnchorPane.topAnchor="250.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="شماره تلفن" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="250.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="کد ملی" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="885.0" AnchorPane.topAnchor="150.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="نام خانوادگی" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="150.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="نام" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="150.0" />
+      <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="چت با کاربر" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="400.0" />
+      <Button alignment="CENTER" layoutX="895.0" layoutY="410.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="گزارشات" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="400.0" />
+      <Button alignment="CENTER" layoutX="500.0" layoutY="410.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="مدیریت کاربران" AnchorPane.rightAnchor="885.0" AnchorPane.topAnchor="400.0" />
+      <Button alignment="CENTER" layoutX="895.0" layoutY="410.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="افزودن محصول" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="500.0" />
+      <Button alignment="CENTER" layoutX="500.0" layoutY="410.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="ویرایش و حذف محصول" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="500.0" />
+      <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="89.0" styleClass="back-button" stylesheets="@st.css" text="خروج" textFill="WHITE" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="95.0">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

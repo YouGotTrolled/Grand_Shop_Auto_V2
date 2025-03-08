@@ -1,0 +1,73 @@
+.back-button {
+    -fx-background-color: #314953;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+    -fx-border-color: #2b3a44;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+}
+
+.back-button:hover {
+    -fx-background-color: #3e5d6b;
+    -fx-text-fill: #e6e6e6;
+}
+
+.back-button:pressed {
+    -fx-background-color: #2b3a44;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 4);
+}
+
+.back-button2 {
+    -fx-background-color: #314953;
+    -fx-text-fill: #000000;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+    -fx-border-color: #314953;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+}
+
+.back-button2:hover {
+    -fx-background-color: #314953;
+    -fx-text-fill: #314953;
+}
+
+.back-button2:pressed {
+    -fx-background-color: #314953;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 4);
+}
+
+
+
+
+
+
+.back-button3 {
+    -fx-background-color: #314953;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 25px;
+    -fx-border-color: #314953;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+}
+
+.back-button3:hover {
+    -fx-background-color: #314953;
+    -fx-text-fill: #314953;
+}
+
+.back-button3:pressed {
+    -fx-background-color: #C8DAE5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 4);
+}

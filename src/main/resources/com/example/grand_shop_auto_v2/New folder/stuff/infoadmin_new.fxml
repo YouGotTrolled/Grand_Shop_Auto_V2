@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #314953;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grandshopauto.InfoadminNew">
+   <children>
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="تاریخ تولد" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="250.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="نشانی منزل" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="885.0" AnchorPane.topAnchor="250.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="شماره تلفن" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="250.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="کد ملی" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="885.0" AnchorPane.topAnchor="150.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="نام خانوادگی" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="150.0" />
+      <TextField alignment="CENTER_RIGHT" layoutX="224.4" layoutY="620.4" prefHeight="50.0" prefWidth="300.0" promptText="نام" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="150.0" />
+      <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="چت با کاربر" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="400.0" />
+      <Button alignment="CENTER" layoutX="895.0" layoutY="410.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="گزارشات" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="400.0" />
+      <Button alignment="CENTER" layoutX="500.0" layoutY="410.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="مدیریت کاربران" AnchorPane.rightAnchor="885.0" AnchorPane.topAnchor="400.0" />
+      <Button alignment="CENTER" layoutX="895.0" layoutY="410.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="افزودن محصول" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="500.0" />
+      <Button alignment="CENTER" layoutX="500.0" layoutY="410.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" text="ویرایش و حذف محصول" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="500.0" />
+      <Button alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="89.0" styleClass="back-button" stylesheets="@st.css" text="خروج" textFill="WHITE" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="95.0">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Button>
+      <Label layoutX="510.0" layoutY="220.0" minHeight="30.0" prefWidth="300.0" textFill="RED" AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="210.0" />
+      <Label layoutX="500.0" layoutY="220.0" minHeight="30.0" prefWidth="300.0" textFill="RED" AnchorPane.rightAnchor="885.0" AnchorPane.topAnchor="210.4" />
+      <Label layoutX="510.0" layoutY="230.0" minHeight="30.0" prefWidth="300.0" textFill="RED" AnchorPane.rightAnchor="490.4" AnchorPane.topAnchor="310.0" />
+      <Label layoutX="520.0" layoutY="240.0" minHeight="30.0" prefWidth="300.0" textFill="RED" AnchorPane.rightAnchor="885.0" AnchorPane.topAnchor="310.0" />
+      <Label layoutX="530.0" layoutY="250.0" minHeight="30.0" prefWidth="300.0" textFill="RED" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="210.4" />
+      <Label layoutX="540.0" layoutY="260.0" minHeight="30.0" prefWidth="300.0" textFill="RED" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="310.0" />
+      <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button alignment="CENTER" layoutX="36.0" layoutY="13.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="2.0" />
+            <Button alignment="CENTER" layoutX="1220.0" layoutY="12.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="2.0" />
+            <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="1224.0" layoutY="40.0" scaleX="3.0" scaleY="3.0" AnchorPane.leftAnchor="1235.0" AnchorPane.topAnchor="18.0" />
+            <FontAwesomeIcon fill="WHITE" glyphName="MINUS" layoutX="1161.0" layoutY="33.0" scaleX="3.0" scaleY="3.0" AnchorPane.leftAnchor="1170.0" AnchorPane.topAnchor="20.714285850524902" />
+            <Button alignment="CENTER" layoutX="1155.0" layoutY="12.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="2.0" />
+            <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" layoutX="30.0" layoutY="29.0" scaleX="3.0" scaleY="3.0" wrappingWidth="13.485705375671387" AnchorPane.leftAnchor="36.0">
+               <font>
+                  <Font name="System Bold" size="51.0" />
+               </font>
+            </FontAwesomeIcon>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

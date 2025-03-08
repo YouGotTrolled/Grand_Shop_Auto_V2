@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grandshopauto.LoginJNew">
+   <children>
+      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="120.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="185.0">
+         <image>
+            <Image url="@../../../u.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
+      <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" layoutX="67.0" layoutY="77.0" scaleX="3.0" scaleY="2.0" wrappingWidth="13.485705375671387" AnchorPane.leftAnchor="72.0" AnchorPane.topAnchor="70.0">
+         <font>
+            <Font name="System Bold" size="51.0" />
+         </font>
+      </FontAwesomeIcon>
+      <TextField layoutX="224.4" layoutY="620.4" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="نام" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="140.0" />
+      <Button alignment="CENTER" layoutX="1010.0" layoutY="560.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" styleClass="back-button" stylesheets="@st.css" text="ثبت" textFill="WHITE" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="540.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="label1" alignment="CENTER_RIGHT" layoutX="610.0" layoutY="500.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="190.0" />
+      <TextField layoutX="940.0" layoutY="160.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="نشانی منزل" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="929.5999999999999" AnchorPane.rightAnchor="150.4000000000001" AnchorPane.topAnchor="240.0" />
+      <TextField layoutX="940.0" layoutY="260.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="کد ملی" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="929.5999999999999" AnchorPane.rightAnchor="150.4000000000001" AnchorPane.topAnchor="340.0" />
+      <TextField layoutX="940.0" layoutY="360.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="نام کاربری" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="929.6" AnchorPane.topAnchor="440.0" />
+      <TextField layoutX="940.0" layoutY="460.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="تکرار رمز عبور" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="929.6" AnchorPane.topAnchor="540.0" />
+      <TextField layoutX="940.0" layoutY="150.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="نام خانوادگی" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="140.0" />
+      <TextField layoutX="940.0" layoutY="250.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="شماره تماس" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="240.0" />
+      <TextField layoutX="940.0" layoutY="350.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="تاریخ تولد" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="340.0" />
+      <TextField layoutX="940.0" layoutY="450.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" promptText="رمز عبور" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="440.0" />
+      <Label fx:id="label11" alignment="CENTER_RIGHT" layoutX="940.0" layoutY="200.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="290.0" />
+      <Label fx:id="label111" alignment="CENTER_RIGHT" layoutX="940.0" layoutY="300.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.rightAnchor="150.4000000000001" AnchorPane.topAnchor="390.0" />
+      <Label fx:id="label112" alignment="CENTER_RIGHT" layoutX="940.0" layoutY="300.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.rightAnchor="150.4000000000001" AnchorPane.topAnchor="490.0" />
+      <Label fx:id="label113" alignment="CENTER_RIGHT" layoutX="940.0" layoutY="300.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.rightAnchor="150.4000000000001" AnchorPane.topAnchor="590.0" />
+      <Label fx:id="label12" alignment="CENTER_RIGHT" layoutX="940.0" layoutY="200.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="190.4" />
+      <Label fx:id="label114" alignment="CENTER_RIGHT" layoutX="940.0" layoutY="300.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="290.0" />
+      <Label fx:id="label1111" alignment="CENTER_RIGHT" layoutX="940.0" layoutY="400.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="390.0" />
+      <Label fx:id="label1121" alignment="CENTER_RIGHT" layoutX="940.0" layoutY="500.0" maxHeight="30.0" maxWidth="481.0" minWidth="200.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #1E2C31;" textAlignment="RIGHT" textFill="#fa0000" AnchorPane.leftAnchor="600.0" AnchorPane.topAnchor="490.0" />
+   </children>
+</AnchorPane>

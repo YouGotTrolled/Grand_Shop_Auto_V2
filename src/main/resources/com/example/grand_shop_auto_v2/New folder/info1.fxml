@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grandshopauto.info">
+   <right>
+      <VBox prefHeight="720.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="info" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchform" prefHeight="68.0" prefWidth="370.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text="اطلاعات کاربری" textFill="#ffffffa8">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="78.0" text="" wrappingWidth="22.85714340209961">
+                     <rotationAxis>
+                        <Point3D x="5.0" z="1.0" />
+                     </rotationAxis>
+                  </FontAwesomeIcon>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="edit" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#changeInfo" prefHeight="61.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text=" ویرایش اطلاعات" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="PENCIL" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="fav" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#list2" prefHeight="59.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text=" لیست موردعلاقه  " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="HEART" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="347.0">
+               <children>
+                  <Circle fx:id="notif" fill="#ff1f1f" radius="10.0" stroke="BLACK" strokeType="INSIDE" visible="false">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Circle>
+                  <Button fx:id="chat" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#chat" prefHeight="64.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text=" چت با ادمین" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="COMMENTS">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></FontAwesomeIcon>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="-30.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Button fx:id="cart" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#card" prefHeight="60.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text="  سبد خرید  " textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="SHOPPING_CART" text="" wrappingWidth="27.619028091430664">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></FontAwesomeIcon>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="kif" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#switchform" prefHeight="61.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text=" کیف پول  " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <graphic>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="\$">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Text>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="edit1" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#changeInfo" prefHeight="61.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text=" &lt; بازگشت" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="out" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#exit" prefHeight="56.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text=" خروج  " textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="WHITE" glyphName="POWER_OFF" />
+               </graphic>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="cart_" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane prefHeight="721.0" prefWidth="933.0" style="-fx-background-color: #314953;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="157.0" layoutY="130.0" prefHeight="154.0" prefWidth="622.0" text="موجودی حساب شما:" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="50.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="balance" alignment="CENTER" contentDisplay="CENTER" layoutX="149.0" layoutY="342.0" prefHeight="71.0" prefWidth="639.0" style="-fx-background-color: #C8DAE5;" styleClass="back-button" stylesheets="@st.css" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="57.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                        <TextField fx:id="btn_charge" layoutX="313.0" layoutY="483.0" prefHeight="46.0" prefWidth="299.0" style="-fx-background-color: #C8DAE5;" styleClass="back-button" stylesheets="@st.css" AnchorPane.topAnchor="550.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets></TextField>
+                        <Label layoutX="646.0" layoutY="491.0" text="شارژ حساب:" textFill="WHITE" AnchorPane.topAnchor="550.0">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="charge" layoutX="190.0" layoutY="482.0" mnemonicParsing="false" onAction="#charge1" prefHeight="48.0" prefWidth="84.0" styleClass="back-button" stylesheets="@st.css" text="شارژ" textFill="WHITE" AnchorPane.topAnchor="550.0">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox fx:id="info_a" maxHeight="720.0" minHeight="400.0" prefHeight="705.0" prefWidth="912.0" style="-fx-background-color: #314953;" visible="false">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" glyphName="USER" size="180">
+                     <VBox.margin>
+                        <Insets left="400.0" top="30.0" />
+                     </VBox.margin>
+                  </FontAwesomeIcon>
+                  <AnchorPane prefHeight="520.0" prefWidth="933.0" style="-fx-background-color: #314953;">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" layoutX="261.0" layoutY="62.0" prefHeight="51.0" prefWidth="178.0" text="نام خانوادگی:" textFill="WHITE" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="69.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="829.0" layoutY="156.0" prefHeight="46.0" prefWidth="123.0" text="کد ملی:" textFill="WHITE" AnchorPane.rightAnchor="40.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="843.0" layoutY="69.0" minWidth="41.0" prefHeight="46.0" prefWidth="58.0" text="نام: " textFill="WHITE" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="69.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="285.0" layoutY="153.0" prefHeight="46.0" prefWidth="153.0" text="تاریخ تولد:" textFill="WHITE" AnchorPane.rightAnchor="500.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="742.0" layoutY="255.0" prefHeight="35.0" prefWidth="158.0" text="شماره تلفن:" textFill="WHITE" AnchorPane.rightAnchor="40.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="720.0" layoutY="363.0" prefHeight="46.0" prefWidth="167.0" text="آدرس:" textAlignment="RIGHT" textFill="WHITE" AnchorPane.rightAnchor="40.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="348.0" layoutY="255.0" prefHeight="46.0" prefWidth="76.0" text="سن:" textFill="WHITE" AnchorPane.rightAnchor="500.0">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dobAge" alignment="CENTER_RIGHT" layoutX="260.0" layoutY="258.0" prefHeight="35.0" prefWidth="107.0" textAlignment="RIGHT" textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="457.0" layoutY="74.0" prefHeight="27.0" prefWidth="369.0" textAlignment="RIGHT" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lastName" alignment="CENTER_RIGHT" layoutX="8.0" layoutY="74.0" prefHeight="28.0" prefWidth="254.0" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ID" alignment="CENTER_RIGHT" layoutX="467.0" layoutY="166.0" prefHeight="27.0" prefWidth="318.0" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="DOB" alignment="CENTER_RIGHT" layoutX="21.0" layoutY="162.0" prefHeight="27.0" prefWidth="275.0" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="num" alignment="CENTER_RIGHT" layoutX="461.0" layoutY="262.0" prefHeight="27.0" prefWidth="270.0" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="addr" alignment="CENTER_RIGHT" layoutX="28.0" layoutY="371.0" prefHeight="27.0" prefWidth="771.0" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets top="10.0" />
+                     </opaqueInsets>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
