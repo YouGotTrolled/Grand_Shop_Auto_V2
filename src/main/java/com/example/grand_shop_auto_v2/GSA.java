@@ -32,6 +32,7 @@ public class GSA extends Application {
         (new File(".\\systemFiles\\carPictures")).mkdir();
         (new File(".\\systemFiles\\brandIcons")).mkdir();
         (new File(".\\systemFiles\\userLog")).mkdir();
+        (new File(".\\systemFiles\\userChat")).mkdir();
         (new File(".\\systemFiles\\allBrand.dat")).createNewFile();
         (new File(".\\systemFiles\\allAccounts.dat")).createNewFile();
         //
@@ -244,8 +245,10 @@ class accunt implements Serializable{
     public void setPersonalLog(File personalLog) {
         this.personalLog = personalLog;
     }
-
     //methods
+    public String toString(){
+        return userName;
+    }
 }
 class customer extends accunt{
     private ArrayList<carPack> card;
@@ -918,7 +921,7 @@ class Abdoll {
         }
     }
     public static String customerSendChatMessage(String message){
-        message= "("+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+")"+currentAcc.getName()+":"+message;
+        message= "("+LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+")"+currentAcc.getUserName()+":"+message;
         try{
             PrintWriter printWriter=new PrintWriter(new FileOutputStream(((customer)(currentAcc)).getChatFile().getAbsolutePath(),true));
             printWriter.println(message);

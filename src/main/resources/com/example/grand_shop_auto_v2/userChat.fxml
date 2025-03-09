@@ -4,21 +4,31 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #314953;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grand_shop_auto_v2.logView">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #314953;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grand_shop_auto_v2.userChat">
     <children>
-        <TextArea fx:id="messageAria" layoutX="91.0" layoutY="188.0" prefHeight="350.0" prefWidth="1080.0" style="-fx-background-color: #1E2C31;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="220.0">
+        <TextArea fx:id="messageAria" editable="false" layoutX="91.0" layoutY="188.0" prefHeight="350.0" prefWidth="1080.0" style="-fx-background-color: #1E2C31;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="220.0">
             <font>
                 <Font size="18.0" />
             </font>
         </TextArea>
-        <Button mnemonicParsing="false" onAction="#reload" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.rightAnchor="132.0" AnchorPane.topAnchor="238.0">
+        <TextField fx:id="message" layoutX="214.4" layoutY="610.4" prefHeight="50.0" prefWidth="858.0" style="-fx-background-color: #C8DAE5;" styleClass="back-button2" stylesheets="@st.css" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="610.0" />
+        <Button layoutX="99.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteChat" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.bottomAnchor="59.6" AnchorPane.leftAnchor="99.0">
+         <graphic>
+              <FontAwesomeIcon fill="WHITE" glyphName="TRASH" scaleX="2.0" scaleY="2.0" />
+         </graphic></Button>
+        <Button layoutX="109.0" layoutY="620.0" mnemonicParsing="false" onAction="#send" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="100.0">
+         <graphic>
+              <FontAwesomeIcon fill="WHITE" glyphName="SEND" scaleX="2.0" scaleY="2.0" />
+         </graphic></Button>
+        <Button fx:id="re" mnemonicParsing="false" onAction="#reload" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="240.0">
          <graphic>
               <FontAwesomeIcon fill="WHITE" glyphName="REFRESH" scaleX="2.0" scaleY="2.0" />
          </graphic></Button>
-        <ComboBox fx:id="combo" layoutX="567.0" layoutY="137.0" onAction="#comboA" prefHeight="35.0" prefWidth="480.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="125.0" />
+        <ComboBox fx:id="combo" layoutX="567.0" layoutY="137.0" onAction="#chose" prefHeight="35.0" prefWidth="480.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="125.0" />
         <AnchorPane layoutX="20.0" layoutY="20.0" prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Button alignment="CENTER" layoutX="36.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.bottomAnchor="2.6000000000000014" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="2.0">

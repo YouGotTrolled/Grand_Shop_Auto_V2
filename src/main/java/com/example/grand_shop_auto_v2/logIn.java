@@ -46,8 +46,4 @@ public class logIn {
             pasword.clear();
         }
     }
-    @FXML
-    void eye1(ActionEvent event) {
-
-    }
 }

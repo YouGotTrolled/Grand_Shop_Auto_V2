@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grandshopauto.LoginJNew">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grand_shop_auto_v2.signUp">
    <children>
       <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="120.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="185.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="185.0">
          <image>
-            <Image url="@../../../u.png" />
+            <Image url="@../../../logo.png" />
          </image>
       </ImageView>
       <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="back-button" stylesheets="@st.css" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />

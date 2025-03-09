@@ -87,9 +87,9 @@ public class main {
     @FXML
     void info(ActionEvent event) {
         if(Abdoll.getCurrentAcc() instanceof customer){
-            Abdoll.goTo("adminInfo",event);
-        }else {
             Abdoll.goTo("customerInfo",event);
+        }else {
+            Abdoll.goTo("adminInfo",event);
         }
     }
 
@@ -134,6 +134,8 @@ public class main {
             Abdoll.goTo("logIn", event);
         }else {
             Abdoll.goTo("userChat", event);
+            if(Abdoll.getCurrentAcc() instanceof customer)
+                ((customer) Abdoll.getCurrentAcc()).setNotification(false);
         }
     }
 
