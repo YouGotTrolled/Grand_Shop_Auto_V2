@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -15,8 +16,11 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class GSA extends Application {
+    static Stage primaryStage;
     @Override
     public void start(Stage stage) throws IOException {
+        //
+        primaryStage=stage;
         //
         Abdoll.loadAllCars();
         Abdoll.loadAllAccounts();
@@ -35,6 +39,7 @@ public class GSA extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setResizable(false);
         stage.setTitle("GSA");
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);
         stage.show();
     }
@@ -249,6 +254,7 @@ class customer extends accunt{
     private File chatFile;
     private String address;
     private long balance;
+    private boolean notification;
     //Constructors
     public customer(String userName, String password, String name, String lastName, String address, int dateOfBirth, long id, long phoneNumber,long balance,File personalLog,File chatFile) {
         super(userName,password,name,lastName,dateOfBirth,id,phoneNumber,personalLog);
@@ -267,6 +273,13 @@ class customer extends accunt{
     }
     public customer(){
         this("defaultUserName","1234","defaultName","defaultLastName","iran",1350_1_1,1,1,0,new File(".\\systemFiles\\userLog\\defaultUserNameLog.txt"),new File(".\\systemFiles\\userChat\\defaultUserNameLog.txt"));
+    }
+    // Getter and Setter for notification
+    public boolean getNotification() {
+        return notification;
+    }
+    public void setNotification(boolean notification) {
+        this.notification = notification;
     }
     // Getter and Setter for balance
     public long getBalance() {

@@ -20,7 +20,7 @@ public class temp {
 
     @FXML
     void creatCar(ActionEvent event) {
-        Abdoll.goTo("addCar",event);
+        Abdoll.goTo("main",event);
     }
 
     @FXML
