@@ -2,6 +2,7 @@ package com.example.grand_shop_auto_v2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -15,10 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-public class addBrand {
-
-    @FXML
-    private Label allError;
+public class editBrand {
 
     @FXML
     private TextField brandCountry;
@@ -27,10 +25,19 @@ public class addBrand {
     private Label brandCountryError;
 
     @FXML
+    private TextArea brandDetail;
+
+    @FXML
+    private Label brandDetailError;
+
+    @FXML
     private TextField brandName;
 
     @FXML
     private Label brandNameError;
+
+    @FXML
+    private Label allError;
 
     @FXML
     private TextField brandOwnerName;
@@ -39,24 +46,43 @@ public class addBrand {
     private Label brandOwnerNameError;
 
     @FXML
-    private TextArea detail;
+    private TextField brandYear;
 
     @FXML
-    private Label detailError;
+    private Label brandYearError;
+
+    @FXML
+    private ComboBox<carBrand> chooseBrand;
 
     @FXML
     private ImageView photo;
 
-    @FXML
-    private TextField year;
-
-    @FXML
-    private Label yearError;
-
     File picture;
 
     @FXML
-    void chosePhoto(ActionEvent event) {
+    private void initialize() {
+        chooseBrand.getItems().addAll(Abdoll.getAllBrand());
+    }
+
+    @FXML
+    void back(ActionEvent event) {
+        Abdoll.goBack(event);
+    }
+
+    @FXML
+    void choose(ActionEvent event) {
+        carBrand brand=chooseBrand.getValue();
+        brandName.setText(brand.getBrandName());
+        brandOwnerName.setText(brand.getBrandOwnerName());
+        brandCountry.setText(brand.getBrandCountry());
+        brandYear.setText(String.valueOf(brand.getYear()));
+        picture=brand.getBrandIcon();
+        photo.setImage(new Image(picture.toURI().toString()));
+        brandDetail.setText(brand.getBrandDetail());
+    }
+
+    @FXML
+    void choosePhoto(ActionEvent event) {
         FileChooser fileChooser=new FileChooser();
         fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Image Files", "*.png"));
         picture=fileChooser.showOpenDialog(new Stage());
@@ -69,9 +95,19 @@ public class addBrand {
     }
 
     @FXML
+    void close(ActionEvent event) {
+        Abdoll.closeTheApp();
+    }
+
+    @FXML
+    void min(ActionEvent event) {
+        GSA.primaryStage.setIconified(true);
+    }
+
+    @FXML
     void submit(ActionEvent event) {
         if(picture!=null) {
-            String[] errors=Abdoll.createNewBrand(brandName.getText(),brandOwnerName.getText(),brandCountry.getText(),detail.getText(),year.getText());
+            String[] errors=Abdoll.editBrand(chooseBrand.getValue(),brandName.getText(),brandOwnerName.getText(),brandCountry.getText(),brandDetail.getText(),brandYear.getText());
             if(errors[0]==null){
                 try {
                     Path destinationPath = Path.of(".\\systemFiles\\brandIcons\\", brandName.getText() + ".png");
@@ -81,8 +117,8 @@ public class addBrand {
                 }
                 brandName.clear();
                 brandOwnerName.clear();
-                detail.clear();
-                year.clear();
+                brandDetail.clear();
+                brandYear.clear();
                 brandCountry.clear();
                 picture=null;
                 photo.setImage(null);
@@ -106,31 +142,26 @@ public class addBrand {
                 brandCountryError.setText(errors[3]);
                 if (errors[3]!=null)
                     brandCountry.clear();
-                detailError.setText(errors[4]);
+                brandDetailError.setText(errors[4]);
                 if (errors[4]!=null)
-                    detail.clear();
-                yearError.setText(errors[5]);
+                    brandDetail.clear();
+                brandYearError.setText(errors[5]);
                 if (errors[5]!=null)
-                    year.clear();
+                    brandYear.clear();
+                initialize();
             }
         }else{
             allError.setText("عکس نزاشتی");
         }
     }
-
     @FXML
-    void back(ActionEvent event) {
-        Abdoll.goBack(event);
-    }
-
-    @FXML
-    void close(ActionEvent event){
-        Abdoll.closeTheApp();
-    }
-
-    @FXML
-    void min(ActionEvent event){
-        GSA.primaryStage.setIconified(true);
+    void remove(ActionEvent event){
+        if (chooseBrand.getValue() == null) {
+            allError.setText("هیچی انتخاب نکردی");
+        } else {
+            Abdoll.getAllBrand().remove(chooseBrand.getValue());
+            initialize();
+        }
     }
 
 }

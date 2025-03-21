@@ -20,7 +20,7 @@ public class logIn {
 
     @FXML
     private void forget(ActionEvent event) {
-        //Abdoll.goTo("forgetPas",event);
+        Abdoll.goTo("forgetPas",event);
     }
 
     @FXML

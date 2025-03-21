@@ -88,7 +88,7 @@
                         </ImageView>
                         <ScrollPane fx:id="scroll" accessibleRole="SCROLL_BAR" hbarPolicy="ALWAYS" layoutX="2.0" layoutY="72.0" prefHeight="267.0" prefWidth="1254.0" style="-fx-background-color: #314953;" vbarPolicy="NEVER">
                             <content>
-                                <AnchorPane layoutX="14.0" layoutY="1.0" maxHeight="251.0" maxWidth="1759.0" minHeight="200.0" prefHeight="251.0" prefWidth="1759.0" style="-fx-background-color: #314953;" translateX="2.0">
+                                <AnchorPane layoutX="14.0" layoutY="1.0" maxHeight="251.0" maxWidth="1762.0" minHeight="200.0" prefHeight="251.0" prefWidth="1770.0" style="-fx-background-color: #314953;" translateX="2.0">
                                     <children>
                                         <VBox layoutX="270.0" prefHeight="227.0" prefWidth="317.0" styleClass="product-item">
                                             <children>
@@ -136,7 +136,7 @@
                                                 </ImageView>
                                                 <Label scaleX="2.0" scaleY="2.0" scaleZ="3.0" text="SL 63" textFill="WHITE">
                                                     <VBox.margin>
-                                                        <Insets bottom="9.0" left="131.0" right="14.0" top="37.0" />
+                                                        <Insets bottom="9.0" left="131.0" right="14.0" top="24.0" />
                                                     </VBox.margin>
                                                 </Label>
                                             </children>
@@ -155,7 +155,7 @@
                                                     <children>
                                                         <Label scaleX="2.0" scaleY="2.0" scaleZ="3.0" text="C 43 " textFill="WHITE">
                                                             <VBox.margin>
-                                                                <Insets left="123.0" top="41.0" />
+                                                                <Insets left="123.0" />
                                                             </VBox.margin>
                                                         </Label>
                                                     </children>
@@ -269,7 +269,7 @@
                                                 </ImageView>
                                                 <Label scaleX="2.0" scaleY="2.0" scaleZ="3.0" text="SL 63" textFill="WHITE">
                                                     <VBox.margin>
-                                                        <Insets bottom="9.0" left="142.0" right="14.0" top="33.0" />
+                                                        <Insets bottom="9.0" left="142.0" right="14.0" top="20.0" />
                                                     </VBox.margin>
                                                     <padding>
                                                         <Insets top="-4.0" />
@@ -291,7 +291,7 @@
                                                     <children>
                                                         <Label scaleX="2.0" scaleY="2.0" scaleZ="3.0" text="C 43 " textFill="WHITE">
                                                             <VBox.margin>
-                                                                <Insets left="123.0" top="38.0" />
+                                                                <Insets bottom="3.0" left="123.0" top="-10.0" />
                                                             </VBox.margin>
                                                         </Label>
                                                     </children>
@@ -371,7 +371,7 @@
                                                 </ImageView>
                                                 <Label scaleX="2.0" scaleY="2.0" scaleZ="3.0" text="X6" textFill="WHITE">
                                                     <VBox.margin>
-                                                        <Insets left="136.0" top="41.0" />
+                                                        <Insets left="136.0" top="38.0" />
                                                     </VBox.margin>
                                                 </Label>
                                             </children>
@@ -405,7 +405,7 @@
                                                 </ImageView>
                                                 <Label scaleX="2.0" scaleY="2.0" scaleZ="3.0" text="SL 63" textFill="WHITE">
                                                     <VBox.margin>
-                                                        <Insets bottom="9.0" left="142.0" right="14.0" top="44.0" />
+                                                        <Insets bottom="9.0" left="142.0" right="14.0" top="28.0" />
                                                     </VBox.margin>
                                                 </Label>
                                             </children>
@@ -424,7 +424,7 @@
                                                     <children>
                                                         <Label prefWidth="69.0" scaleX="2.0" scaleY="2.0" scaleZ="3.0" text="C 43 " textFill="WHITE">
                                                             <VBox.margin>
-                                                                <Insets left="137.0" top="53.0" />
+                                                                <Insets left="137.0" top="4.0" />
                                                             </VBox.margin>
                                                         </Label>
                                                     </children>
@@ -562,7 +562,7 @@
                                                     <children>
                                                         <Label scaleX="2.0" scaleY="2.0" scaleZ="3.0" text="C 43 " textFill="WHITE">
                                                             <VBox.margin>
-                                                                <Insets left="141.0" top="37.0" />
+                                                                <Insets left="141.0" />
                                                             </VBox.margin>
                                                         </Label>
                                                     </children>

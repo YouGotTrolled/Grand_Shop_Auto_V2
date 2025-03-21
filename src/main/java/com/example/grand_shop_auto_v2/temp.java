@@ -16,6 +16,7 @@ public class temp {
         System.out.println(Abdoll.getLastPageName());
         System.out.println(Abdoll.getAllAccounts());
         System.out.println(Abdoll.getAllAccounts().getFirst().getPassword());
+        System.out.println(Abdoll.getAllCars());
         Abdoll.saveAllAccounts();
     }
 

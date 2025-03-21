@@ -32,7 +32,7 @@ public class logView {
 
     @FXML
     void close(ActionEvent event) {
-        System.exit(0);
+        Abdoll.closeTheApp();
     }
 
     @FXML

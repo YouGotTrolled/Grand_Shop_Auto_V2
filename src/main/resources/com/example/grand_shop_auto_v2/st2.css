@@ -51,7 +51,8 @@
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
-        -fx-transition: background-color 1s ease-in-out;
+    -fx-transition: background-color 2.3s ease-in-out;
+
 
 }
 
@@ -76,7 +77,6 @@
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
-    -fx-transition: background-color 1s ease;
 
 
 }
@@ -102,7 +102,8 @@
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
-    -fx-transition: background-color 1s ease;
+
+
 
 
 }
@@ -145,6 +146,56 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 4);
 }
 
+
+.button4 {
+    -fx-background-color:  #249817;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #249817;
+    -fx-border-width: 0px;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+
+
+}
+
+
+.button4:hover {
+    -fx-background-color: #04ff00;
+}
+
+.button4:pressed {
+    -fx-background-color: #2b3a44;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 4);
+}
+.button5 {
+    -fx-background-color: #c00000 ;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+
+    -fx-border-width: 0px;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+
+
+}
+
+
+.button5:hover {
+    -fx-background-color: #ff0000 ;
+    -fx-text-fill: #e6e6e6;
+}
+
+.button5:pressed {
+    -fx-background-color: #2b3a44;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 4);
+}
 .product-item:hover {
     -fx-scale-x: 1.03;
     -fx-scale-y: 1.03;

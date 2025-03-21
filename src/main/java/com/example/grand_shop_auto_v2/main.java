@@ -69,9 +69,7 @@ public class main {
 
     @FXML
     void close(ActionEvent event) {
-        Abdoll.saveAllAccounts();
-        Abdoll.saveAllCarBrands();
-        System.exit(0);
+        Abdoll.closeTheApp();
     }
 
     @FXML
@@ -125,7 +123,7 @@ public class main {
 
     @FXML
     void newList(ActionEvent event) {
-
+        Abdoll.goTo("newList",event);
     }
 
     @FXML

@@ -36,7 +36,7 @@ public class GSA extends Application {
         (new File(".\\systemFiles\\allBrand.dat")).createNewFile();
         (new File(".\\systemFiles\\allAccounts.dat")).createNewFile();
         //
-        FXMLLoader fxmlLoader = new FXMLLoader(GSA.class.getResource("temp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(GSA.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage.setResizable(false);
         stage.setTitle("GSA");
@@ -133,6 +133,9 @@ class car implements Serializable{
             result=true;
         return result;
     }
+    public String toString(){
+        return (name+" "+year);
+    }
 }
 class carPack implements Serializable{
     private car carName;
@@ -158,6 +161,10 @@ class carPack implements Serializable{
     }
     public void setQuantity(int quantity){
         this.quantity=quantity;
+    }
+    //methods
+    public  String toString(){
+        return carName.toString()+" ("+quantity+")";
     }
 }
 class accunt implements Serializable{
@@ -485,6 +492,10 @@ class carBrand implements Serializable{
     public void setBrandIcon(File brandIcon) {
         this.brandIcon = brandIcon;
     }
+    //methods
+    public String toString(){
+        return brandName;
+    }
 }
 class Abdoll {
     private static accunt currentAcc;
@@ -498,7 +509,7 @@ class Abdoll {
         lastPageName=new ArrayList<>();
         allAccounts=new ArrayList<>();
         allBrand=new ArrayList<>();
-        lastPageName.add("temp");
+        lastPageName.add("main");
         //add the main menu first
     }
     //Getters and Setters
@@ -581,7 +592,7 @@ class Abdoll {
         }
         allCars=new ArrayList<>();
         for(int i=0;i<allBrand.size();i++){
-            for(int j=0;i<allBrand.get(i).getBrandList().size();j++) {
+            for(int j=0;j<allBrand.get(i).getBrandList().size();j++) {
                 allCars.add(allBrand.get(i).getBrandList().get(j));
             }
         }
@@ -650,6 +661,47 @@ class Abdoll {
                     logThisMessageInPersonalLog("user loged in");
                 }else{
                     errorList[0]="رمز عبور اشتباه است";
+                }
+            }
+        }
+        return errorList;
+    }
+    public static String[] checkLogInF(String userName,String password){
+        //variable
+        String[] errorList = new String[3];
+        for (String s : errorList) {
+            s="";
+        }
+        /*
+        0_allError
+        1_userNameError
+        2_passwordError
+        */
+        //flags
+        boolean userNameFlag=true;
+        boolean passwordFlag=true;
+        if (userName.isEmpty()){
+            userNameFlag=false;
+            errorList[1]="نام کاربری خود را وارد کنید";
+            errorList[0]="error";
+        }
+        if (password.isEmpty()){
+            passwordFlag=false;
+            errorList[2]="کد ملی خود را وارد کنید";
+            errorList[0]="error";
+        }
+        if(userNameFlag&&passwordFlag){
+            int index = isUserNameUsed(userName);
+            if (index==-1){
+                errorList[0]="حسابی با این مشخصات وجود ندارد ، از بخش  ثبت نام یکی ایجاد کنید";
+            }
+            else{
+                if(String.valueOf(allAccounts.get(index).getId()).equals(password)) {
+                    currentAcc = allAccounts.get(index);
+                    errorList[0]="enter";
+                    logThisMessageInPersonalLog("user loged in");
+                }else{
+                    errorList[0]="کد ملی اشتباه است";
                 }
             }
         }
@@ -1174,6 +1226,201 @@ class Abdoll {
         if (brandNameFlag && brandOwnerFlag && brandCountryFlag && brandDetailFlag && yearFlag) {
             allBrand.add(new carBrand(brandName,brandOwnerName,brandCountry,brandDetail,Integer.parseInt(year)));
             logThisMessageInPersonalLog("created a brand named"+brandName);
+        }
+        return errorList;
+    }
+    public static String[] editBrand(carBrand brand,String brandName,String brandOwnerName,String brandCountry,String brandDetail,String year) {
+        //flags
+        boolean brandNameFlag = true;
+        boolean brandOwnerFlag = true;
+        boolean brandCountryFlag = true;
+        boolean brandDetailFlag = true;
+        boolean yearFlag = true;
+        //variable
+        String[] errorList = new String[6];
+        for (String s : errorList) {
+            s="";
+        }
+        /*
+        0_allError
+        1_brandNameError
+        2_brandOwnerNameError
+        3_brandCountryError
+        4_brandDetailError
+        5_yearError
+        */
+        //brandNameFlag
+        if (brandName.isEmpty()) {
+            brandNameFlag = false;
+            errorList[1] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //brandOwnerFlag
+        if (brandOwnerName.isEmpty()) {
+            brandOwnerFlag = false;
+            errorList[2] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //brandCountryFlag
+        if (brandCountry.isEmpty()) {
+            brandCountryFlag = false;
+            errorList[3] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //brandDetailFlag
+        if (brandDetail.isEmpty()) {
+            brandDetailFlag = false;
+            errorList[4] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //yearFlag
+        if (year.isEmpty()) {
+            yearFlag = false;
+            errorList[5] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            yearFlag = !(charCheckOut(year, 57, 48));
+            if (!yearFlag) {
+                errorList[5] = "سال تولید فقط باید عدد باشد";
+                errorList[0] = "error";
+            } else if (year.length() != 4) {
+                yearFlag = false;
+                errorList[5] = "سال تولید فقط باید 4 رقم باشد";
+                errorList[0] = "error";
+            }
+        }
+        //
+        if (brandNameFlag && brandOwnerFlag && brandCountryFlag && brandDetailFlag && yearFlag) {
+            brand.setBrandName(brandName);
+            brand.setBrandOwnerName(brandOwnerName);
+            brand.setBrandCountry(brandCountry);
+            brand.setYear(Integer.parseInt(year));
+            brand.setBrandDetail(brandDetail);
+            logThisMessageInPersonalLog("edited a brand named "+brandName);
+        }
+        return errorList;
+    }
+    public static void closeTheApp(){
+        saveAllAccounts();
+        saveAllCarBrands();
+        System.exit(0);
+    }
+    public static String[] editCar(carPack carPack,String name,String brand,String detail,String year,String price,boolean availability,String quantity) {
+        //flags
+        boolean nameFlag = true;
+        boolean brandFlag = true;
+        boolean detailFlag = true;
+        boolean yearFlag = true;
+        boolean priceFlag = true;
+        boolean availabilityFlag = true;
+        boolean quantityFlag = true;
+        //variable
+        String[] errorList = new String[8];
+        for (String s : errorList) {
+            s="";
+        }
+        int index=-1;
+        /*
+        0_allError
+        1_nameError
+        2_brandError
+        3_detailError
+        4_yearError
+        5_priceError
+        6_availabilityError
+        7_quantityError
+        */
+        //nameFlag
+        if (name.isEmpty()) {
+            nameFlag = false;
+            errorList[1] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //brandFlag
+        if(!carPack.getCar().getBrand().equals(brand)) {
+            if (brand.isEmpty()) {
+                brandFlag = false;
+                errorList[2] = "فیلد خالی است";
+                errorList[0] = "error";
+            } else {
+                index = allBrand.stream().map(o -> o.getBrandName()).collect(Collectors.toList()).indexOf(brand);
+                if (index == -1) {
+                    brandFlag = false;
+                    errorList[2] = "این برند در سیستم موجود نیست";
+                    errorList[0] = "error";
+                }
+            }
+        }
+
+        //detailFlag
+        if (detail.isEmpty()) {
+            detailFlag = false;
+            errorList[3] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //yearFlag
+        if (year.isEmpty()) {
+            yearFlag = false;
+            errorList[4] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            yearFlag = !(charCheckOut(year, 57, 48));
+            if (!yearFlag) {
+                errorList[4] = "سال تولید فقط باید عدد باشد";
+                errorList[0] = "error";
+            } else if (year.length() != 4) {
+                yearFlag = false;
+                errorList[4] = "سال تولید فقط باید 4 رقم باشد";
+                errorList[0] = "error";
+            }
+        }
+        //priceFlag
+        if (price.isEmpty()) {
+            priceFlag = false;
+            errorList[5] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            priceFlag = !(charCheckOut(price, 57, 48));
+            if (!priceFlag) {
+                errorList[5] = "سال تولید فقط باید عدد باشد";
+                errorList[0] = "error";
+            }
+        }
+        //availabilityFlag
+        //quantityFlag
+        if (quantity.isEmpty()) {
+            quantityFlag = false;
+            errorList[7] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            quantityFlag = !(charCheckOut(year, 57, 48));
+            if (!quantityFlag) {
+                errorList[7] = "سال تولید فقط باید عدد باشد";
+                errorList[0] = "error";
+            }
+        }
+        //
+        if (nameFlag && brandFlag && detailFlag && yearFlag && priceFlag  && quantityFlag) {
+            //removing from old list and adding it to new one
+            if(!carPack.getCar().getBrand().equals(brand)){
+                int index1=-1;
+                for (int i =0;index1==-1&&i<allBrand.size();i++) {
+                    if (allBrand.get(i).getBrandName().equals(carPack.getCar().getBrand()))
+                        index1=i;
+                }
+                allBrand.get(index1).removeFromBrandList(carPack);
+                allBrand.get(index).getBrandList().add(carPack);
+            }
+            //
+            carPack.setQuantity(Integer.parseInt(quantity));
+            car car=carPack.getCar();
+            car.setAvailability(availability);
+            car.setBrand(brand);
+            car.setDetail(detail);
+            car.setName(name);
+            car.setPrice(Long.parseLong(price));
+            car.setYear(Integer.parseInt(year));
+            logThisMessageInPersonalLog("edited a car named "+name);
         }
         return errorList;
     }
