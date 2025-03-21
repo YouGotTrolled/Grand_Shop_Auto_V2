@@ -56,9 +56,11 @@ public class customerInfo {
         address.setText(now.getAddress());
         phone.setText("0"+ now.getPhoneNumber());
         id.setText(String.valueOf(now.getId()));
+        //date & age
         int date=now.getDateOfBirth();
         dob.setText(date/10000+"/"+(date/100)%100+"/"+date%100);
-        dobAge.setText(String.valueOf(date-14040000));
+        dobAge.setText(String.valueOf(((1404_00_00-date)/1_00_00)%100));
+        //
         balance.setText(String.valueOf(now.getBalance()));
         if(now.getNotification()){
             notif.setVisible(true);

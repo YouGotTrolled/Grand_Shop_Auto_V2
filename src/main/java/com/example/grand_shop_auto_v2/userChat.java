@@ -61,7 +61,7 @@ public class userChat {
 
     @FXML
     void close(ActionEvent event) {
-        System.exit(0);
+        Abdoll.closeTheApp();
     }
 
     @FXML

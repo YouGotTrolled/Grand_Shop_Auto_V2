@@ -1424,4 +1424,130 @@ class Abdoll {
         }
         return errorList;
     }
+    public static String[] editCustomer(customer customer,String password,String name,String lastName,String address,String dateOfBirst,String id,String phoneNumber) {
+        //flags
+        boolean passFlag = true;
+        boolean nameFlag = true;
+        boolean lNameFlag = true;
+        boolean idFlag = true;
+        boolean phoneFlag = true;
+        boolean addFlag = true;
+        boolean birthFlag = true;
+        //variable
+        String[] errorList = new String[8];
+        for (String s : errorList) {
+            s="";
+        }
+        /*
+        0_allError
+        1_nameError
+        2_lastNameError
+        3_passwordError
+        4_addressError
+        5_idError
+        6_phoneNumberError
+        7_dateOfBirstError
+        */
+        //passwordFlag
+        if (password.isEmpty()) {
+            passFlag = false;
+            errorList[3] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //nameFlag
+        if (name.isEmpty()) {
+            nameFlag = false;
+            errorList[1] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            nameFlag = !((charCheckOut(name, 1740, 1570) && !charCheck(name, 32, 32)));
+            if (!nameFlag) {
+                errorList[1] = "نام فقط باید حروف فارسی باشد";
+                errorList[0] = "error";
+            }
+        }
+        //lastNameFlag
+        if (lastName.isEmpty()) {
+            lNameFlag = false;
+            errorList[2] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            lNameFlag = !((charCheckOut(lastName, 1740, 1570) && !charCheck(lastName, 32, 32)));
+            if (!lNameFlag) {
+                errorList[2] = "نام خوانوادگی فقط باید حروف فارسی باشد";
+                errorList[0] = "error";
+            }
+        }
+        //idFlag
+        if (id.isEmpty()) {
+            idFlag = false;
+            errorList[5] = "فیلد خالی است";
+            errorList[0] = "error";
+        } else {
+            idFlag = !(charCheckOut(id, 57, 48));
+            if (!idFlag) {
+                errorList[5] = "کد ملی فقط باید عدد باشد";
+                errorList[0] = "error";
+            } else if (id.length() != 10) {
+                idFlag = false;
+                errorList[5] = "شماره فقط باید 10 رقم باشد";
+                errorList[0] = "error";
+            }
+        }
+        //dateOfBirstFlag
+        if (dateOfBirst.isEmpty()) {
+            birthFlag = false;
+            errorList[7] = "فیلد خالی است";
+            errorList[0] = "error";
+        }else{
+            if (dateOfBirst.length() != 10) {
+                birthFlag = false;
+                errorList[7] = "غیر قابل قبول";
+                errorList[0] = "error";
+            }else{
+                if(charCheckOut(dateOfBirst, 57, 47) || dateOfBirst.charAt(4) != '/' || dateOfBirst.charAt(7) != '/'){
+                    birthFlag=false;
+                    errorList[7] = "تاریخ تولد فقط باید عدد و / باشد";
+                    errorList[0] = "error";
+                }
+            }
+        }
+        //phoneNumberFlag
+        if(phoneNumber.isEmpty()){
+            phoneFlag=false;
+            errorList[6] = "فیلد خالی است";
+            errorList[0] = "error";
+        }else{
+            phoneFlag = !(charCheckOut(phoneNumber, 57, 48));
+            if (!phoneFlag) {
+                errorList[6] = "شماره فقط باید عدد باشد";
+                errorList[0] = "error";
+            }else{
+                if(phoneNumber.length()!=11){
+                    phoneFlag=false;
+                    errorList[6] = "شماره فقط باید 11 رقم باشد";
+                    errorList[0] = "error";
+                }
+            }
+        }
+        //addressFlag
+        if (address.isEmpty()) {
+            addFlag = false;
+            errorList[4] = "فیلد خالی است";
+            errorList[0] = "error";
+        }
+        //
+        if (passFlag && nameFlag && lNameFlag && addFlag && idFlag && phoneFlag && birthFlag) {
+            customer.setPassword(password);
+            customer.setName(name);
+            customer.setLastName(lastName);
+            customer.setAddress(address);
+            customer.setId(Long.parseLong(id));
+            customer.setPhoneNumber(Long.parseLong(phoneNumber));
+            int dateOfBirstInNumber=(dateOfBirst.charAt(0)-48)*1000_00_00+(dateOfBirst.charAt(1)-48)* 100_00_00 +(dateOfBirst.charAt(2)-48)*10_00_00+(dateOfBirst.charAt(3)-48)*1_00_00+(dateOfBirst.charAt(5)-48)*10_00+(dateOfBirst.charAt(6)-48)*1_00+(dateOfBirst.charAt(8)-48)*10+(dateOfBirst.charAt(9)-48);
+            customer.setDateOfBirth(dateOfBirstInNumber);
+            logThisMessageInPersonalLog("edited info of "+customer.getUserName());
+        }
+        return errorList;
+    }
 }

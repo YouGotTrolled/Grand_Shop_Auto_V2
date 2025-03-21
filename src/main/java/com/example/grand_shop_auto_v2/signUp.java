@@ -66,7 +66,6 @@ public class signUp {
 
     @FXML
     void back(ActionEvent event) {
-        System.out.println(Abdoll.getLastPageName());
         Abdoll.goBack(event);
     }
 
@@ -74,7 +73,7 @@ public class signUp {
     void submit(ActionEvent event) {
         String[] error=Abdoll.customerSignUp(userName.getText(),password.getText(),rePassword.getText(),name.getText(),lastName.getText(),address.getText(),dob.getText(),id.getText(),phone.getText());
         if(error[0]==null){
-            Abdoll.goTo("temp",event);
+            Abdoll.goTo("main",event);
         }else {
             allError.setText(error[0]);
             nameError.setText(error[1]);
