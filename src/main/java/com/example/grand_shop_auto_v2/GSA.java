@@ -442,7 +442,7 @@ class carBrand implements Serializable{
         boolean flag=true;
         int i=0;
         for(;i<brandList.size()&&flag;i++){
-            if(car.equals(brandList.get(i)))
+            if(car.equals(brandList.get(i).getCar()))
                 flag=false;
         }
         removeFromBrandList(--i);
@@ -1382,7 +1382,7 @@ class Abdoll {
         } else {
             priceFlag = !(charCheckOut(price, 57, 48));
             if (!priceFlag) {
-                errorList[5] = "سال تولید فقط باید عدد باشد";
+                errorList[5] = "قیمت فقط باید عدد باشد";
                 errorList[0] = "error";
             }
         }
@@ -1393,9 +1393,9 @@ class Abdoll {
             errorList[7] = "فیلد خالی است";
             errorList[0] = "error";
         } else {
-            quantityFlag = !(charCheckOut(year, 57, 48));
+            quantityFlag = !(charCheckOut(quantity, 57, 48));
             if (!quantityFlag) {
-                errorList[7] = "سال تولید فقط باید عدد باشد";
+                errorList[7] = "تعداد فقط باید عدد باشد";
                 errorList[0] = "error";
             }
         }

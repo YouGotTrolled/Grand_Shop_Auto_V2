@@ -97,7 +97,6 @@ public class editCar {
         photo.setImage(new Image(picture.toURI().toString()));
         detail.setText(car.getDetail());
         avill.setSelected(car.isAvailability());
-        System.out.println(car.isAvailability());
     }
 
     @FXML
@@ -136,6 +135,7 @@ public class editCar {
             }
             Abdoll.getAllBrand().get(index).removeFromBrandList(car);
             Abdoll.getAllCars().remove(car);
+            chooseCar.setItems(null);
             chooseCar.getItems().addAll(Abdoll.getAllCars());
         }
     }
@@ -160,6 +160,8 @@ public class editCar {
                 picture=null;
                 photo.setImage(null);
                 error.setText("تامام");
+                chooseCar.setItems(null);
+                chooseCar.getItems().addAll(Abdoll.getAllCars());
             }else{
                 error.setText(errors[0]);
                 nameError.setText(errors[1]);
