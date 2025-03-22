@@ -36,7 +36,7 @@ public class adminInfo {
 
     @FXML
     void accManeige(ActionEvent event) {
-        Abdoll.goTo("editAcc",event);
+        Abdoll.goTo("editAccount",event);
     }
 
     @FXML

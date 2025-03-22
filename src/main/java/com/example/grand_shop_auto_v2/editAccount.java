@@ -6,9 +6,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 import java.util.stream.Collectors;
 
 public class editAccount {
@@ -78,7 +75,7 @@ public class editAccount {
         lastName.setText(ali.getLastName());
         address.setText(ali.getAddress());
         password.setText(ali.getPassword());
-        phoneNumber.setText(String.valueOf(ali.getPhoneNumber()));
+        phoneNumber.setText("0"+ali.getPhoneNumber());
         id.setText(String.valueOf(ali.getId()));
         int date=ali.getDateOfBirth();
         dateOfBirst.setText(date/10000+"/"+(date/100)%100+"/"+date%100);
@@ -86,16 +83,6 @@ public class editAccount {
 
     @FXML
     void submit(ActionEvent event) {
-        /*
-        0_allError
-        1_nameError
-        2_brandError
-        3_detailError
-        4_yearError
-        5_priceError
-        6_availabilityError
-        7_quantityError
-        */
         String[] errors=Abdoll.editCustomer(((customer) accountChoose.getValue()),password.getText(),name.getText(),lastName.getText(),address.getText(),dateOfBirst.getText(),id.getText(),phoneNumber.getText());
         if(errors[0]==null){
             name.clear();
@@ -107,23 +94,38 @@ public class editAccount {
             phoneNumber.clear();
             allError.setText("تامام");
         }else{
+        /*
+        0_allError
+        1_nameError
+        2_lastNameError
+        3_passwordError
+        4_addressError
+        5_idError
+        6_phoneNumberError
+        7_dateOfBirstError
+        */
             allError.setText(errors[0]);
-            brandNameError.setText(errors[1]);
+            nameError.setText(errors[1]);
             if (errors[1]!=null)
-                brandName.clear();
-            brandOwnerNameError.setText(errors[2]);
+                name.clear();
+            lastNameError.setText(errors[2]);
             if (errors[2]!=null)
-                brandOwnerName.clear();
-            brandCountryError.setText(errors[3]);
+                lastName.clear();
+            passwordError.setText(errors[3]);
             if (errors[3]!=null)
-                brandCountry.clear();
-            brandDetailError.setText(errors[4]);
+                password.clear();
+            addressError.setText(errors[4]);
             if (errors[4]!=null)
-                brandDetail.clear();
-            brandYearError.setText(errors[5]);
+                address.clear();
+            idError.setText(errors[5]);
             if (errors[5]!=null)
-                brandYear.clear();
-            initialize();
+                id.clear();
+            phoneNumberError.setText(errors[5]);
+            if (errors[6]!=null)
+                phoneNumber.clear();
+            dateOfBirstError.setText(errors[5]);
+            if (errors[7]!=null)
+                 dateOfBirst.clear();
         }
     }
 
