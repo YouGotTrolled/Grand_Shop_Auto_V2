@@ -86,7 +86,7 @@ public class customerInfo {
 
     @FXML
     void changeInfo(ActionEvent event) {
-        Abdoll.goTo("changeInfo",event);
+        Abdoll.goTo("editAccount",event);
     }
 
     @FXML

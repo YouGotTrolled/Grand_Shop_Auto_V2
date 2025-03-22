@@ -58,8 +58,15 @@ public class editAccount {
     @FXML
     private Label phoneNumberError;
 
+    boolean isCustomer;
+
     @FXML
     private void initialize() {
+        isCustomer=Abdoll.getCurrentAcc() instanceof customer;
+        if(isCustomer) {
+            load(((customer) Abdoll.getCurrentAcc()));
+            accountChoose.setVisible(false);
+        }
         accountChoose.getItems().addAll(Abdoll.getAllAccounts().stream().filter(o->o instanceof customer).collect(Collectors.toList()));
     }
 
@@ -70,7 +77,10 @@ public class editAccount {
 
     @FXML
     void choose(ActionEvent event) {
-        customer ali=((customer) accountChoose.getValue());
+        load((customer) accountChoose.getValue());
+    }
+
+    void load(customer ali){
         name.setText(ali.getName());
         lastName.setText(ali.getLastName());
         address.setText(ali.getAddress());
@@ -83,7 +93,12 @@ public class editAccount {
 
     @FXML
     void submit(ActionEvent event) {
-        String[] errors=Abdoll.editCustomer(((customer) accountChoose.getValue()),password.getText(),name.getText(),lastName.getText(),address.getText(),dateOfBirst.getText(),id.getText(),phoneNumber.getText());
+        String[] errors;
+        if(isCustomer){
+            errors = Abdoll.editCustomer(((customer) Abdoll.getCurrentAcc()), password.getText(), name.getText(), lastName.getText(), address.getText(), dateOfBirst.getText(), id.getText(), phoneNumber.getText());
+        }else {
+            errors = Abdoll.editCustomer(((customer) accountChoose.getValue()), password.getText(), name.getText(), lastName.getText(), address.getText(), dateOfBirst.getText(), id.getText(), phoneNumber.getText());
+        }
         if(errors[0]==null){
             name.clear();
             lastName.clear();
@@ -93,6 +108,8 @@ public class editAccount {
             id.clear();
             phoneNumber.clear();
             allError.setText("تامام");
+            if(isCustomer)
+                Abdoll.goBack(event);
         }else{
         /*
         0_allError
