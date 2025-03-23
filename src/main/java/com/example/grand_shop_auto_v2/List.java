@@ -11,6 +11,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 
+import java.util.ArrayList;
+
 public class List {
 
     @FXML
@@ -214,7 +216,8 @@ public class List {
         addToCardB = new Button[]{addToCardB1, addToCardB11, addToCardB12, addToCardB13};
         addToFavB = new Button[]{addToFavListB1, addToFavListB11, addToFavListB12, addToFavListB13};
         //
-        list=Abdoll.getAllCars();
+        list=new ArrayList<>();
+        Abdoll.getAllCars().forEach(o->list.addFirst(o));
         //
         size=list.size();
         pageSize=size/4;
@@ -259,6 +262,8 @@ public class List {
                 addToCardB[pos].setVisible(false);
                 editCard[pos].setVisible(true);
                 cardQ[pos].setText(String.valueOf(temp.getQuantity()));
+            }else{
+                cardQ[pos].setText("1");
             }
             if(customer.getFavouriteCard().stream().anyMatch(o->o.equals(list.get(i).getCar()))){
                 car temp=customer.getFavouriteCard().stream().filter(o->o.equals(list.get(i).getCar())).findAny().get();
@@ -300,7 +305,6 @@ public class List {
         ((customer) Abdoll.getCurrentAcc()).addToCard(new carPack(list.get(selcted).getCar(),1));
         addToCardB[selcted%4].setVisible(false);
         editCard[selcted%4].setVisible(true);
-        System.out.println(((customer) Abdoll.getCurrentAcc()).getCard());
     }
 
     @FXML
