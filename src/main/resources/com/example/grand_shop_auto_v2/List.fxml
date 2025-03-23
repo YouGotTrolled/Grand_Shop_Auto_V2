@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2041.0" prefWidth="1280.0" stylesheets="@st2.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2041.0" prefWidth="1266.0">
+         <children>
+             <AnchorPane layoutX="-7.0" layoutY="30.0" prefHeight="167.0" prefWidth="1273.0" style="-fx-background-color: #1e2c31;" AnchorPane.topAnchor="30.0">
+                 <children>
+                     <ImageView fitHeight="61.0" fitWidth="64.0" layoutX="1198.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../../logo.png" />
+                         </image>
+                     </ImageView>
+                     <Label layoutX="1118.0" layoutY="18.0" prefHeight="43.0" prefWidth="79.0" text="GS Auto" textFill="#ededed">
+                         <font>
+                             <Font name="System Bold" size="19.0" />
+                         </font>
+                     </Label>
+                     <TextField fx:id="searchIn" layoutX="667.0" layoutY="19.0" prefHeight="38.0" prefWidth="434.0" promptText="search" styleClass="search-bar">
+                         <font>
+                             <Font size="17.0" />
+                         </font>
+                     </TextField>
+                     <Button layoutX="1043.0" layoutY="20.0" mnemonicParsing="false" onAction="#search" prefHeight="43.0" prefWidth="43.0" styleClass="search-button" AnchorPane.leftAnchor="1043.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="20.0">
+                         <graphic>
+                             <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="9.0" layoutY="-4.0" scaleX="2.0" scaleY="2.0" selectionFill="#b77171" wrappingWidth="11.809483528137207" x="4.0" y="-5.0">
+                                 <font>
+                                     <Font size="49.0" />
+                                 </font>
+                             </FontAwesomeIcon>
+                         </graphic>
+                     </Button>
+                     <Button layoutX="12.0" layoutY="18.0" mnemonicParsing="false" onAction="#back" prefHeight="46.0" prefWidth="52.0" styleClass="back-button">
+                         <graphic>
+                             <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" scaleX="2.0" scaleY="2.0" wrappingWidth="12.9523344039917" />
+                         </graphic>
+                     </Button>
+                     <Button fx:id="loginB" layoutX="81.0" layoutY="18.0" mnemonicParsing="false" onAction="#login" prefHeight="39.0" prefWidth="184.0" styleClass="back-button" text="ورود/ثبت نام">
+                         <font>
+                             <Font size="21.0" />
+                         </font>
+                     </Button>
+                     <Button layoutX="279.0" layoutY="18.0" mnemonicParsing="false" onAction="#notif" prefHeight="46.0" prefWidth="52.0" styleClass="back-button">
+                         <graphic>
+                             <FontAwesomeIcon id="back-button" fill="#fffbfb" glyphName="SEND" scaleX="1.5" scaleY="1.5" wrappingWidth="14.0" />
+                         </graphic>
+                     </Button>
+                     <Circle fx:id="notifC" fill="#ff1f1f" layoutX="320.0" layoutY="35.0" radius="5.0" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeType="INSIDE" visible="false" AnchorPane.rightAnchor="948.3333333333333" AnchorPane.topAnchor="29.0" />
+                     <Button fx:id="infoB" layoutX="91.0" layoutY="28.0" mnemonicParsing="false" onAction="#info" prefHeight="39.0" prefWidth="184.0" styleClass="back-button" text="حساب کاربری" visible="false" AnchorPane.rightAnchor="998.3333333333333" AnchorPane.topAnchor="18.0">
+                         <font>
+                             <Font size="21.0" />
+                         </font>
+                     </Button>
+                       <Button layoutX="1111.0" layoutY="109.0" mnemonicParsing="false" onAction="#goMian" prefHeight="29.0" prefWidth="125.0" text="صفحه اصلی" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="37.0" />
+                       <Button layoutX="954.0" layoutY="109.0" mnemonicParsing="false" onAction="#newList" prefHeight="29.0" prefWidth="132.0" text="جدید ترین ها" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="954.0" AnchorPane.rightAnchor="189.0" />
+                  <Button layoutX="759.0" layoutY="109.0" mnemonicParsing="false" onAction="#favList" prefHeight="44.0" prefWidth="162.0" text="لیست مورد علاقه" />
+                 </children>
+             </AnchorPane>
+
+             <AnchorPane layoutX="-1.0" layoutY="-89.0" maxHeight="119.0" minHeight="73.0" prefHeight="119.0" prefWidth="1267.0" style="-fx-background-color: #1e2c31;">
+                 <children>
+                     <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1230.0" layoutY="94.0" maxHeight="40.0" minHeight="27.0" mnemonicParsing="false" onAction="#close" prefHeight="31.0" prefWidth="32.0" styleClass="button3" AnchorPane.bottomAnchor="-4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="92.0">
+                         <graphic>
+                             <FontAwesomeIcon fill="WHITE" glyphName="TIMES" layoutX="19.0" layoutY="-11.0" scaleX="1.5" scaleY="1.5" text="" wrappingWidth="9.428571701049805" x="2.0" />
+                         </graphic>
+                     </Button>
+                     <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1183.0" layoutY="91.0" maxHeight="40.0" minHeight="27.0" mnemonicParsing="false" onAction="#min" prefHeight="32.0" prefWidth="34.0" styleClass="button3" AnchorPane.rightAnchor="71.33333333333326">
+                         <graphic>
+                             <FontAwesomeIcon fill="#efefef" glyphName="MINUS" wrappingWidth="11.428692698478699" />
+                         </graphic>
+                     </Button>
+                 </children>
+             </AnchorPane>
+
+
+
+
+             <AnchorPane prefHeight="400.0" prefWidth="1265.0" style="-fx-background-color: #1E2C31;" AnchorPane.topAnchor="1640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+                 <children>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="1140.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../../logo.png" />
+                         </image>
+                     </ImageView>
+                     <Label layoutX="900.0" layoutY="41.0" prefHeight="64.0" prefWidth="155.0" text="GS Auto" textFill="WHITE" AnchorPane.rightAnchor="135.0">
+                         <font>
+                             <Font name="System Bold" size="35.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER_RIGHT" layoutX="490.0" layoutY="129.0" prefHeight="36.0" prefWidth="750.0" text="تلفن پشتیبانی 61930000-021    |    91000100-021    |     7 روز هفته و 24 ساعته پاسخگوی شما هستیم" textAlignment="RIGHT" textFill="WHITE">
+                         <font>
+                             <Font name="System Bold" size="17.0" />
+                         </font>
+                     </Label>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="640.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="1090.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="200.0">
+                         <image>
+                             <Image url="@../../../support.png" />
+                         </image>
+                     </ImageView>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="1038.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="840.0">
+                         <image>
+                             <Image url="@../../../express-delivery.png" />
+                         </image>
+                     </ImageView>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="852.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="590.0">
+                         <image>
+                             <Image url="@../../../cash-on-delivery.png" />
+                         </image>
+                     </ImageView>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="600.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="200.0">
+                         <image>
+                             <Image url="@../../../days-return.png" />
+                         </image>
+                     </ImageView>
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="600.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="200.0">
+                         <image>
+                             <Image url="@../../../original-products.png" />
+                         </image>
+                     </ImageView>
+                     <Label alignment="CENTER" layoutX="1077.0" layoutY="307.0" prefHeight="19.0" prefWidth="121.0" text="پشتیبانی همیشگی" textFill="WHITE">
+                         <font>
+                             <Font name="System Bold" size="13.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="860.0" layoutY="308.0" prefHeight="19.0" prefWidth="68.0" text="تحویل سریع" textFill="WHITE">
+                         <font>
+                             <Font name="System Bold" size="13.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="596.0" layoutY="309.0" prefHeight="19.0" prefWidth="97.0" text="پرداخت حضوری" textFill="WHITE">
+                         <font>
+                             <Font name="System Bold" size="13.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" layoutX="296.0" layoutY="308.0" prefHeight="19.0" prefWidth="187.0" text="هفت ماه سرویس در نمایندگی" textFill="WHITE">
+                         <font>
+                             <Font name="System Bold" size="13.0" />
+                         </font>
+                     </Label>
+                     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="302.0" prefHeight="32.0" prefWidth="147.0" text="ضمانت اصل بودن کالا" textFill="WHITE">
+                         <font>
+                             <Font name="System Bold" size="13.0" />
+                         </font>
+                     </Label>
+                     <Label layoutX="301.0" layoutY="349.0" prefHeight="18.0" prefWidth="689.0" text="برای استفاده از این مطالب، داشتن «هدف غیرتجاری» و ذکر «منبع» کافیست. تمام حقوق اين وب‌سايت نیز برای شرکت جی اس خودرو است." textFill="WHITE" />
+                 </children>
+             </AnchorPane>
+
+            <AnchorPane layoutX="-15.0" layoutY="197.0" prefHeight="1448.0" prefWidth="1280.0" style="-fx-background-color: #314953;">
+               <children>
+                  <AnchorPane layoutX="52.0" layoutY="13.0" prefHeight="400.0" prefWidth="1200.0">
+                     <children>
+                        <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextArea layoutX="346.0" layoutY="29.0" prefHeight="310.0" prefWidth="596.0" />
+                     </children>
+                  </AnchorPane>
+               </children></AnchorPane>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
