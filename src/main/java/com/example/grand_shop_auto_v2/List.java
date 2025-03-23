@@ -6,9 +6,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.stream.Collectors;
+
 
 public class List {
 
@@ -174,6 +180,24 @@ public class List {
     @FXML
     private TextArea textArea13;
 
+    //
+    AnchorPane[] items;
+    TextArea[] textAreas;
+    Button[] removeFromFavListB;
+    ImageView[] image;
+    Label[] errors;
+    AnchorPane[] editCard;
+    Button[] editB;
+    Label[] cardQ;
+    Button[] addToCardB;
+    Button[] addToFavB;
+    //
+    java.util.List<carPack> list;
+    int page=0;
+    int size;
+    int pageSize;
+    //
+
     @FXML
     void initialize() {
         if(Abdoll.getCurrentAcc()!=null){
@@ -183,16 +207,115 @@ public class List {
                 notifC.setVisible(true);
             }
         }
+        //
+        items= new AnchorPane[]{item1, item11, item12, item13};
+        textAreas= new TextArea[]{textArea1, textArea11, textArea12, textArea13};
+        removeFromFavListB = new Button[]{removeFromFavListB1, removeFromFavListB11, removeFromFavListB12, removeFromFavListB13};
+        image = new ImageView[]{image1, image11, image12, image13};
+        errors = new Label[]{error1, error11, error12, error13};
+        editCard = new AnchorPane[]{editCard1, editCard11, editCard12, editCard13};
+        editB = new Button[]{edit1, edit11, edit12, edit13};
+        cardQ = new Label[]{cardQ1, cardQ11, cardQ12, cardQ13};
+        addToCardB = new Button[]{addToCardB1, addToCardB11, addToCardB12, addToCardB13};
+        addToFavB = new Button[]{addToFavListB1, addToFavListB11, addToFavListB12, addToFavListB13};
+        //
+        list=Abdoll.getAllCars();
+        //
+        size=list.size();
+        pageSize=size/4;
+        if(size%4!=0)
+            pageSize++;
+        if(pageSize<2)
+            nextPageB.setVisible(false);
+        //
+        loadPage();
+    }
+
+    void loadItem(carPack carPack,int pos){
+        car car=carPack.getCar();
+        //
+        items[pos].setVisible(true);
+        //
+        image[pos].setImage(new Image(car.getPicture().toURI().toString()));
+        //
+        String isAvillable;
+        if(car.isAvailability()){
+            isAvillable="هست";
+        }else{
+            isAvillable="نیست";
+        }
+        String massage=String.format("نام خودرو:%s   سال تولید:%d"+"\n"+
+                                     "قیمت:%,d تومن  تعداد موجود در فروشگاه:%d"+"\n"+
+                                     "برند تولید:%s   موجود%s"+"\n"+
+                                     "%s"
+                                     ,car.getName(),car.getYear(),car.getPrice(),carPack.getQuantity(),car.getBrand(),isAvillable,car.getDetail());
+        textAreas[pos].setText(massage);
+        //
+        if(Abdoll.getCurrentAcc()==null){
+            addToCardB[pos].setVisible(false);
+            addToFavB[pos].setVisible(false);
+            editB[pos].setVisible(false);
+        }else if(Abdoll.getCurrentAcc() instanceof customer){
+            editB[pos].setVisible(false);
+            int i=pos+4*page;
+            customer customer=((customer) Abdoll.getCurrentAcc());
+            if(customer.getCard().stream().anyMatch(o->o.getCar().equals(list.get(i).getCar()))){
+                carPack temp=customer.getCard().stream().filter(o->o.getCar().equals(list.get(i).getCar())).findAny().get();
+                addToCardB[pos].setVisible(false);
+                editCard[pos].setVisible(true);
+                cardQ[pos].setText(String.valueOf(temp.getQuantity()));
+            }
+            if(customer.getFavouriteCard().stream().anyMatch(o->o.equals(list.get(i).getCar()))){
+                car temp=customer.getFavouriteCard().stream().filter(o->o.equals(list.get(i).getCar())).findAny().get();
+                addToFavB[pos].setVisible(false);
+                removeFromFavListB[pos].setVisible(true);
+            }
+        }else {
+            addToCardB[pos].setVisible(false);
+            addToFavB[pos].setVisible(false);
+        }
+    }
+
+    void loadPage(){
+        for (int i = 0; i < 4; i++) {
+            items[i].setVisible(false);
+            removeFromFavListB[i].setVisible(false);
+            addToFavB[i].setVisible(true);
+            editCard[i].setVisible(false);
+            addToCardB[i].setVisible(true);
+        }
+        int thisPageQ;
+        if (size > 4 * (page + 1)) {
+            thisPageQ = 4;
+        } else {
+            thisPageQ = (size - 4 * page) % 4;
+        }
+        //
+        for (int i = 0; i < thisPageQ;)
+            loadItem(list.get(i+4*page),i++);
+        nextPageB.setVisible(size!=thisPageQ+page*4);
+        prePageB.setVisible(page != 0);
     }
 
     @FXML
     void addToCard(ActionEvent event) {
-
+        //
+        int selcted=select(event,12);
+        //
+        ((customer) Abdoll.getCurrentAcc()).addToCard(new carPack(list.get(selcted).getCar(),1));
+        addToCardB[selcted%4].setVisible(false);
+        editCard[selcted%4].setVisible(true);
+        System.out.println(((customer) Abdoll.getCurrentAcc()).getCard());
     }
 
     @FXML
     void addToFavList(ActionEvent event) {
-
+        //
+        int selcted=select(event,15);
+        //
+        ((customer) Abdoll.getCurrentAcc()).addToFavouriteCard(list.get(selcted).getCar());
+        addToFavB[selcted%4].setVisible(false);
+        removeFromFavListB[selcted%4].setVisible(true);
     }
 
     @FXML
@@ -207,17 +330,43 @@ public class List {
 
     @FXML
     void editB(ActionEvent event) {
-
+        //
+        int selcted=select(event,6);
+        //
     }
 
     @FXML
     void editCardM(ActionEvent event) {
-
+        //
+        int selcted=select(event,12);
+        //
+        customer customer=((customer) Abdoll.getCurrentAcc());
+        //
+        carPack temp=customer.getCard().stream().filter(o->o.getCar().equals(list.get(selcted).getCar())).findAny().get();
+        int q=temp.getQuantity()-1;
+        if(q!=0) {
+            temp.setQuantity(q);
+            cardQ[selcted%4].setText(String.valueOf(q));
+        }else{
+            ((customer) Abdoll.getCurrentAcc()).removeFromCard(list.get(selcted));
+            editCard[selcted%4].setVisible(false);
+            addToCardB[selcted%4].setVisible(true);
+        }
     }
 
     @FXML
     void editCardP(ActionEvent event) {
-
+        //
+        int selcted=select(event,12);
+        //
+        customer customer=((customer) Abdoll.getCurrentAcc());
+        //
+        carPack temp=customer.getCard().stream().filter(o->o.getCar().equals(list.get(selcted).getCar())).findAny().get();
+        int q=temp.getQuantity()+1;
+        if (q <= list.get(selcted).getQuantity()) {
+            temp.setQuantity(q);
+            cardQ[selcted%4].setText(String.valueOf(q));
+        }
     }
 
     @FXML
@@ -241,7 +390,7 @@ public class List {
 
     @FXML
     void login(ActionEvent event) {
-
+        Abdoll.goTo("logIn",event);
     }
 
     @FXML
@@ -256,7 +405,8 @@ public class List {
 
     @FXML
     void nextPage(ActionEvent event) {
-
+        page++;
+        loadPage();
     }
 
     @FXML
@@ -272,17 +422,37 @@ public class List {
 
     @FXML
     void prePage(ActionEvent event) {
-
+        page--;
+        loadPage();
     }
 
     @FXML
     void removeFromFavList(ActionEvent event) {
-
+        //
+        int selcted=select(event,20);
+        //
+        ((customer) Abdoll.getCurrentAcc()).removeFromFavouriteCard(list.get(selcted).getCar());
+        removeFromFavListB[selcted%4].setVisible(false);
+        addToFavB[selcted%4].setVisible(true);
     }
 
     @FXML
     void search(ActionEvent event) {
 
+    }
+
+    int select(ActionEvent event,int longestNameLength){
+        int selcted=page*4;
+        String temp=((Button) event.getSource()).getId();
+        if(temp.charAt(temp.length()-1)=='1'){
+            if(temp.length()==longestNameLength)
+                selcted++;
+        } else if (temp.charAt(temp.length()-1)=='2') {
+            selcted+=2;
+        }else{
+            selcted+=3;
+        }
+        return selcted;
     }
 
 }

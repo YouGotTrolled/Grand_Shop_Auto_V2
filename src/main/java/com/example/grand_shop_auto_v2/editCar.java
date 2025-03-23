@@ -160,8 +160,6 @@ public class editCar {
                 picture=null;
                 photo.setImage(null);
                 error.setText("تامام");
-                chooseCar.setItems(null);
-                chooseCar.getItems().addAll(Abdoll.getAllCars());
             }else{
                 error.setText(errors[0]);
                 nameError.setText(errors[1]);
