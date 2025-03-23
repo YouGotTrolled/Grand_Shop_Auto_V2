@@ -160,7 +160,67 @@
 
             <AnchorPane layoutX="-15.0" layoutY="197.0" prefHeight="1448.0" prefWidth="1280.0" style="-fx-background-color: #314953;">
                <children>
-                  <AnchorPane fx:id="item1" layoutX="52.0" layoutY="13.0" prefHeight="340.0" prefWidth="1200.0">
+                  <AnchorPane fx:id="item13" layoutX="40.0" layoutY="1060.0" prefHeight="340.0" prefWidth="1200.0">
+                     <children>
+                        <ImageView fx:id="image13" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextArea fx:id="textArea13" editable="false" layoutX="340.0" layoutY="20.0" prefHeight="300.0" prefWidth="600.0" style="-fx-control-inner-background: #314953;" />
+                        <Button fx:id="addToCardB13" layoutX="960.0" layoutY="20.0" mnemonicParsing="false" onAction="#addToCard" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد خرید" />
+                        <Button fx:id="addToFavListB13" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#addToFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="افزودن به لیست مورد علاقه ها" />
+                        <Button fx:id="edit13" layoutX="960.0" layoutY="140.0" mnemonicParsing="false" onAction="#editB" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="ویرایش" />
+                        <Label fx:id="error13" layoutX="960.0" layoutY="280.0" prefHeight="40.0" prefWidth="220.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="removeFromFavListB13" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFromFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="حذف از لیست مورد علاقه ها" visible="false" />
+                        <AnchorPane fx:id="editCard13" layoutX="960.0" layoutY="20.0" prefHeight="40.0" prefWidth="220.0" visible="false">
+                           <children>
+                              <Button fx:id="editCardMB13" layoutX="10.0" mnemonicParsing="false" onAction="#editCardM" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="-" />
+                              <Button fx:id="editCardPB13" layoutX="160.0" mnemonicParsing="false" onAction="#editCardP" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="+">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="cardQ13" alignment="CENTER" layoutX="80.0" prefHeight="40.0" prefWidth="60.0" text="1" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="item12" layoutX="40.0" layoutY="700.0" prefHeight="340.0" prefWidth="1200.0">
+                     <children>
+                        <ImageView fx:id="image12" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextArea fx:id="textArea12" editable="false" layoutX="340.0" layoutY="20.0" prefHeight="300.0" prefWidth="600.0" style="-fx-control-inner-background: #314953;" />
+                        <Button fx:id="addToCardB12" layoutX="960.0" layoutY="20.0" mnemonicParsing="false" onAction="#addToCard" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد خرید" />
+                        <Button fx:id="addToFavListB12" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#addToFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="افزودن به لیست مورد علاقه ها" />
+                        <Button fx:id="edit12" layoutX="960.0" layoutY="140.0" mnemonicParsing="false" onAction="#editB" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="ویرایش" />
+                        <Label fx:id="error12" layoutX="960.0" layoutY="280.0" prefHeight="40.0" prefWidth="220.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="removeFromFavListB12" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFromFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="حذف از لیست مورد علاقه ها" visible="false" />
+                        <AnchorPane fx:id="editCard12" layoutX="960.0" layoutY="20.0" prefHeight="40.0" prefWidth="220.0" visible="false">
+                           <children>
+                              <Button fx:id="editCardMB12" layoutX="10.0" mnemonicParsing="false" onAction="#editCardM" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="-" />
+                              <Button fx:id="editCardPB12" layoutX="160.0" mnemonicParsing="false" onAction="#editCardP" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="+">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="cardQ12" alignment="CENTER" layoutX="80.0" prefHeight="40.0" prefWidth="60.0" text="1" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="item1" layoutX="40.0" prefHeight="340.0" prefWidth="1200.0">
                      <children>
                         <ImageView fx:id="image1" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
                         <TextArea fx:id="textArea1" editable="false" layoutX="340.0" layoutY="20.0" prefHeight="300.0" prefWidth="600.0" style="-fx-control-inner-background: #314953;" />
@@ -173,8 +233,55 @@
                            </font>
                         </Label>
                         <Button fx:id="removeFromFavListB1" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFromFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="حذف از لیست مورد علاقه ها" visible="false" />
+                        <AnchorPane fx:id="editCard1" layoutX="960.0" layoutY="20.0" prefHeight="40.0" prefWidth="220.0" visible="false">
+                           <children>
+                              <Button fx:id="editCardMB1" layoutX="10.0" mnemonicParsing="false" onAction="#editCardM" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="-" />
+                              <Button fx:id="editCardPB1" layoutX="160.0" mnemonicParsing="false" onAction="#editCardP" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="+">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="cardQ1" alignment="CENTER" layoutX="80.0" prefHeight="40.0" prefWidth="60.0" text="1" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
+                  <AnchorPane fx:id="item11" layoutX="40.0" layoutY="340.0" prefHeight="340.0" prefWidth="1200.0">
+                     <children>
+                        <ImageView fx:id="image11" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <TextArea fx:id="textArea11" editable="false" layoutX="340.0" layoutY="20.0" prefHeight="300.0" prefWidth="600.0" style="-fx-control-inner-background: #314953;" />
+                        <Button fx:id="addToCardB11" layoutX="960.0" layoutY="20.0" mnemonicParsing="false" onAction="#addToCard" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد خرید" />
+                        <Button fx:id="addToFavListB11" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#addToFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="افزودن به لیست مورد علاقه ها" />
+                        <Button fx:id="edit11" layoutX="960.0" layoutY="140.0" mnemonicParsing="false" onAction="#editB" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="ویرایش" />
+                        <Label fx:id="error11" layoutX="960.0" layoutY="280.0" prefHeight="40.0" prefWidth="220.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="removeFromFavListB11" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFromFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="حذف از لیست مورد علاقه ها" visible="false" />
+                        <AnchorPane fx:id="editCard11" layoutX="960.0" layoutY="20.0" prefHeight="40.0" prefWidth="220.0" visible="false">
+                           <children>
+                              <Button fx:id="editCardMB11" layoutX="10.0" mnemonicParsing="false" onAction="#editCardM" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="-" />
+                              <Button fx:id="editCardPB11" layoutX="160.0" mnemonicParsing="false" onAction="#editCardP" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="+">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="cardQ11" alignment="CENTER" layoutX="80.0" prefHeight="40.0" prefWidth="60.0" text="1" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="nextPageB" layoutX="1160.0" layoutY="1400.0" mnemonicParsing="false" onAction="#nextPage" styleClass="button4" stylesheets="@st2.css" text="صفحه ی بعد" />
+                  <Button fx:id="prePageB" layoutX="20.0" layoutY="1400.0" mnemonicParsing="false" onAction="#prePage" styleClass="button4" stylesheets="@st2.css" text="صفحه ی قبل" />
                </children></AnchorPane>
          </children></AnchorPane>
   </content>
