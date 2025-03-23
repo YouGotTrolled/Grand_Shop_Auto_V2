@@ -123,7 +123,7 @@ public class main {
 
     @FXML
     void newList(ActionEvent event) {
-        Abdoll.goTo("newList",event);
+        Abdoll.goTo("List",event);
     }
 
     @FXML
