@@ -76,30 +76,6 @@ public class main {
     private AnchorPane editCard13;
 
     @FXML
-    private Button editCardMB1;
-
-    @FXML
-    private Button editCardMB11;
-
-    @FXML
-    private Button editCardMB12;
-
-    @FXML
-    private Button editCardMB13;
-
-    @FXML
-    private Button editCardPB1;
-
-    @FXML
-    private Button editCardPB11;
-
-    @FXML
-    private Button editCardPB12;
-
-    @FXML
-    private Button editCardPB13;
-
-    @FXML
     private Label error1;
 
     @FXML
@@ -191,9 +167,6 @@ public class main {
 
     @FXML
     private Button downSort;
-
-    @FXML
-    private Button searchB;
 
     //
     AnchorPane[] items;
@@ -543,6 +516,5 @@ public class main {
         }
         filter(event);
     }
-
 }
 enum filterOptions{NAME,BRAND,PRICE,YEAR,QUANTITY}
