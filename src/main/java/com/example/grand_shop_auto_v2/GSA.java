@@ -391,6 +391,14 @@ class customer extends accunt{
     //methods
 }
 class admin extends accunt{
+    private carPack tempForEdit;
+    // Getter and Setter method
+    public carPack getTempForEdit() {
+        return tempForEdit;
+    }
+    public void setTempForEdit(carPack tempForEdit) {
+        this.tempForEdit = tempForEdit;
+    }
     //Constructors
     public admin(String userName,String password,String name,String lastName,int dateOfBirth,long id,long phoneNumber,File personalLog) {
         super(userName,password,name,lastName,dateOfBirth,id,phoneNumber,personalLog);

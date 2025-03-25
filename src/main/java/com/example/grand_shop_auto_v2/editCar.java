@@ -68,10 +68,18 @@ public class editCar {
     private Label yearError;
 
     File picture;
+    boolean fromMain=false;
 
     @FXML
     private void initialize() {
         chooseCar.getItems().addAll(Abdoll.getAllCars());
+        carPack tempCarPack=((admin) Abdoll.getCurrentAcc()).getTempForEdit();
+        if(tempCarPack!=null){
+            ((admin) Abdoll.getCurrentAcc()).setTempForEdit(null);
+            load(tempCarPack);
+            chooseCar.setValue(tempCarPack);
+            fromMain=true;
+        }
     }
 
     @FXML
@@ -86,7 +94,10 @@ public class editCar {
 
     @FXML
     void choose(ActionEvent event) {
-        carPack carPack=chooseCar.getValue();
+        load(chooseCar.getValue());
+    }
+
+    void load(carPack carPack){
         car car=carPack.getCar();
         name.setText(car.getName());
         brand.setText(car.getBrand());
@@ -160,6 +171,8 @@ public class editCar {
                 picture=null;
                 photo.setImage(null);
                 error.setText("تامام");
+                if(fromMain)
+                    Abdoll.goBack(event);
             }else{
                 error.setText(errors[0]);
                 nameError.setText(errors[1]);
