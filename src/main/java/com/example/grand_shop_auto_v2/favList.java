@@ -174,7 +174,6 @@ public class favList {
     @FXML
     void initialize() {
         searchIn.setOnAction(e->filter(e));
-        System.out.println(((customer) Abdoll.getCurrentAcc()).getPurchaseHistory());
         //
         if(((customer) Abdoll.getCurrentAcc()).getNotification()){
             notifC.setVisible(true);
