@@ -1,714 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1871.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grand_shop_auto_v2.cardd">
+<ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2041.0" prefWidth="1280.0" stylesheets="@st2.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.grand_shop_auto_v2.cardd">
     <content>
-        <AnchorPane prefHeight="720.0" prefWidth="1280.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2041.0" prefWidth="1266.0">
             <children>
-                <VBox layoutY="191.33333333333334" prefHeight="1281.0" prefWidth="1289.0" style="-fx-background-color: #314953;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="191.0">
+                <AnchorPane layoutX="-7.0" layoutY="30.0" prefHeight="167.0" prefWidth="1273.0" style="-fx-background-color: #1e2c31;" AnchorPane.topAnchor="30.0">
                     <children>
-                        <AnchorPane prefHeight="300.0" prefWidth="200.0">
-                            <VBox.margin>
-                                <Insets top="75.0" />
-                            </VBox.margin>
-                            <children>
-                                <StackPane fx:id="box1" maxHeight="333.0" maxWidth="299.0" minHeight="295.0" minWidth="194.0" prefHeight="324.0" prefWidth="293.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="80.0">
-                                    <children>
-                                        <VBox prefHeight="300.0" prefWidth="590.0">
-                                            <children>
-                                                <ImageView fx:id="image1" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name1" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="year1" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="price1" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <StackPane prefHeight="150.0" prefWidth="200.0">
-                                                    <children>
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <StackPane.margin>
-                                                                <Insets left="200.0" top="15.0" />
-                                                            </StackPane.margin>
-                                                        </ImageView>
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <StackPane.margin>
-                                                                <Insets left="200.0" top="15.0" />
-                                                            </StackPane.margin>
-                                                        </ImageView>
-                                                    </children>
-                                                </StackPane>
-                                            </children>
-                                        </VBox>
-                                        <Button maxHeight="700.0" minHeight="339.0" mnemonicParsing="false" onAction="#but1" prefHeight="339.0" prefWidth="293.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="back-button" stylesheets="@st.css">
-                                            <graphic>
-                                                <AnchorPane maxHeight="62.0" prefHeight="0.0" prefWidth="250.0">
-                                                    <children>
-                                                        <AnchorPane fx:id="Anch1" layoutY="482.0" prefHeight="315.0" prefWidth="249.0" AnchorPane.topAnchor="218.0">
-                                                            <children>
-                                                                <Button fx:id="plus1" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Button fx:id="minus1" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Label fx:id="q1" text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                                    <font>
-                                                                        <Font size="35.0" />
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                            <padding>
-                                                                <Insets top="87.0" />
-                                                            </padding>
-                                                        </AnchorPane>
-                                                        <Button fx:id="card1" mnemonicParsing="false" onAction="#card" prefHeight="44.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد" AnchorPane.leftAnchor="51.0" AnchorPane.topAnchor="306.0" />
-                                                    </children>
-                                                    <padding>
-                                                        <Insets top="132.0" />
-                                                    </padding>
-                                                </AnchorPane>
-                                            </graphic>
-                                            <StackPane.margin>
-                                                <Insets />
-                                            </StackPane.margin></Button>
-                                    </children>
-                                </StackPane>
-                                <StackPane fx:id="box2" prefHeight="320.0" prefWidth="260.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="480.0">
-                                    <children>
-                                        <VBox prefHeight="300.0" prefWidth="260.0">
-                                            <children>
-                                                <ImageView fx:id="image2" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name2" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="331.0" styleClass="custom-font" stylesheets="@fontS.css" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="6.0" />
-                                                    </VBox.margin>
-                                                    <padding>
-                                                        <Insets top="-3.0" />
-                                                    </padding>
-                                                </Label>
-                                                <Label fx:id="year2" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="12.0" />
-                                                    </VBox.margin>
-                                                    <padding>
-                                                        <Insets top="-3.0" />
-                                                    </padding>
-                                                </Label>
-                                                <Label fx:id="price2" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="12.0" />
-                                                    </VBox.margin>
-                                                    <padding>
-                                                        <Insets top="-3.0" />
-                                                    </padding>
-                                                </Label>
-                                                <StackPane prefHeight="150.0" prefWidth="200.0">
-                                                    <children>
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <StackPane.margin>
-                                                                <Insets left="200.0" top="15.0" />
-                                                            </StackPane.margin>
-                                                        </ImageView>
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <StackPane.margin>
-                                                                <Insets left="200.0" top="15.0" />
-                                                            </StackPane.margin>
-                                                        </ImageView>
-                                                    </children>
-                                                </StackPane>
-                                            </children>
-                                        </VBox>
-                                        <Button mnemonicParsing="false" onAction="#but2" prefHeight="320.0" prefWidth="260.0" style="-fx-background-color: transparent;" styleClass="back-button5" />
-                                        <AnchorPane maxHeight="62.0" prefHeight="44.0" prefWidth="202.0">
-                                            <StackPane.margin>
-                                                <Insets top="248.0" />
-                                            </StackPane.margin>
-                                            <children>
-                                                <Button fx:id="card2" mnemonicParsing="false" onAction="#card" prefHeight="44.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد" AnchorPane.leftAnchor="53.0" />
-                                                <AnchorPane fx:id="Anch2" layoutY="-5.0" prefHeight="46.0" prefWidth="249.0" visible="false" AnchorPane.topAnchor="1.0">
-                                                    <children>
-                                                        <Button fx:id="plus2" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                            <graphic>
-                                                                <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                            </graphic>
-                                                        </Button>
-                                                        <Button fx:id="minus2" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                            <graphic>
-                                                                <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                            </graphic>
-                                                        </Button>
-                                                        <Label text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                            <font>
-                                                                <Font size="35.0" />
-                                                            </font>
-                                                        </Label>
-                                                    </children>
-                                                </AnchorPane>
-                                            </children>
-                                        </AnchorPane>
-                                    </children>
-                                </StackPane>
-                                <StackPane fx:id="box3" prefHeight="320.0" prefWidth="260.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="880.0">
-                                    <children>
-                                        <VBox prefHeight="300.0" prefWidth="260.0">
-                                            <children>
-                                                <ImageView fx:id="image3" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name3" alignment="TOP_CENTER" prefHeight="15.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="-3.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="year3" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="15.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="9.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="price3" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="15.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="9.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <StackPane prefHeight="150.0" prefWidth="200.0">
-                                                    <children>
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <StackPane.margin>
-                                                                <Insets left="200.0" top="15.0" />
-                                                            </StackPane.margin>
-                                                        </ImageView>
-                                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                                            <StackPane.margin>
-                                                                <Insets left="200.0" top="15.0" />
-                                                            </StackPane.margin>
-                                                        </ImageView>
-                                                    </children>
-                                                </StackPane>
-                                            </children>
-                                        </VBox>
-                                        <Button mnemonicParsing="false" onAction="#but3" prefHeight="320.0" prefWidth="260.0" style="-fx-background-color: transparent;" />
-                                        <AnchorPane maxHeight="62.0" prefHeight="44.0" prefWidth="202.0">
-                                            <children>
-                                                <Button fx:id="card3" mnemonicParsing="false" onAction="#card" prefHeight="44.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد" AnchorPane.leftAnchor="53.0" />
-                                                <AnchorPane fx:id="Anch3" layoutX="1.0" layoutY="-1.0" prefHeight="49.0" prefWidth="247.0" visible="false">
-                                                    <children>
-                                                        <Button fx:id="plus3" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                            <graphic>
-                                                                <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                            </graphic>
-                                                        </Button>
-                                                        <Button fx:id="minus3" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                            <graphic>
-                                                                <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                            </graphic>
-                                                        </Button>
-                                                        <Label text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                            <font>
-                                                                <Font size="35.0" />
-                                                            </font>
-                                                        </Label>
-                                                    </children>
-                                                </AnchorPane>
-                                            </children>
-                                            <StackPane.margin>
-                                                <Insets top="248.0" />
-                                            </StackPane.margin>
-                                        </AnchorPane>
-                                    </children>
-                                </StackPane>
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="85.0" prefHeight="300.0" prefWidth="200.0">
-                            <children>
-                                <StackPane fx:id="box4" prefHeight="320.0" prefWidth="260.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="80.0">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#but4" prefHeight="320.0" prefWidth="260.0" style="-fx-background-color: transparent;" />
-                                        <VBox prefHeight="300.0" prefWidth="590.0">
-                                            <children>
-                                                <ImageView fx:id="image4" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name4" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="-3.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="year4" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="price4" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <AnchorPane maxHeight="62.0" prefHeight="44.0" prefWidth="202.0">
-                                                    <children>
-                                                        <Button fx:id="card4" mnemonicParsing="false" onAction="#card" prefHeight="44.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد" AnchorPane.leftAnchor="53.0" />
-                                                        <AnchorPane fx:id="Anch4" layoutX="2.0" layoutY="-1.0" prefHeight="54.0" prefWidth="242.0" visible="false">
-                                                            <children>
-                                                                <Button fx:id="plus4" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Button fx:id="minus4" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Label text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                                    <font>
-                                                                        <Font size="35.0" />
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                        </AnchorPane>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="8.0" />
-                                                    </VBox.margin>
-                                                </AnchorPane>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </StackPane>
-                                <StackPane fx:id="box5" prefHeight="320.0" prefWidth="260.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="480.0">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#but5" prefHeight="296.0" prefWidth="272.0" style="-fx-background-color: transparent;" />
-                                        <VBox prefHeight="300.0" prefWidth="260.0">
-                                            <children>
-                                                <ImageView fx:id="image5" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name5" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="331.0" styleClass="custom-font" stylesheets="@fontS.css" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="-3.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="year5" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="price5" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <AnchorPane maxHeight="62.0" prefHeight="44.0" prefWidth="202.0">
-                                                    <children>
-                                                        <Button fx:id="card5" mnemonicParsing="false" onAction="#card" prefHeight="44.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد" AnchorPane.leftAnchor="53.0" />
-                                                        <AnchorPane fx:id="Anch5" layoutX="1.0" layoutY="-2.0" prefHeight="55.0" prefWidth="247.0" visible="false">
-                                                            <children>
-                                                                <Button fx:id="plus5" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Button fx:id="minus5" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Label text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                                    <font>
-                                                                        <Font size="35.0" />
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                        </AnchorPane>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="8.0" />
-                                                    </VBox.margin>
-                                                </AnchorPane>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </StackPane>
-                                <StackPane fx:id="box6" prefHeight="320.0" prefWidth="260.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="880.0">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#but6" prefHeight="320.0" prefWidth="260.0" style="-fx-background-color: transparent;" />
-                                        <VBox prefHeight="300.0" prefWidth="260.0">
-                                            <children>
-                                                <ImageView fx:id="image6" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name6" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="-3.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="year6" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="price6" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <AnchorPane maxHeight="62.0" prefHeight="44.0" prefWidth="202.0">
-                                                    <children>
-                                                        <Button fx:id="card6" mnemonicParsing="false" onAction="#card" prefHeight="44.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد" AnchorPane.leftAnchor="53.0" />
-                                                        <AnchorPane fx:id="Anch6" layoutX="-8.0" layoutY="-1.0" prefHeight="54.0" prefWidth="252.0" visible="false">
-                                                            <children>
-                                                                <Button fx:id="plus6" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Button fx:id="minus6" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Label text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                                    <font>
-                                                                        <Font size="35.0" />
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                        </AnchorPane>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="8.0" />
-                                                    </VBox.margin>
-                                                </AnchorPane>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </StackPane>
-                            </children>
-                            <VBox.margin>
-                                <Insets top="75.0" />
-                            </VBox.margin>
-                        </AnchorPane>
-                        <AnchorPane layoutX="10.0" layoutY="482.0" prefHeight="338.0" prefWidth="1280.0">
-                            <children>
-                                <StackPane fx:id="box7" prefHeight="327.0" prefWidth="294.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="80.0">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#but7" prefHeight="258.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" styleClass="back-button" stylesheets="@st.css" />
-                                        <VBox prefHeight="290.0" prefWidth="250.0">
-                                            <children>
-                                                <ImageView fx:id="image7" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name7" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="-3.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="year7" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="price7" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <AnchorPane fx:id="Anch7" maxHeight="62.0" prefHeight="48.0" prefWidth="250.0" visible="false">
-                                                    <children>
-                                                        <Button fx:id="plus7" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                            <graphic>
-                                                                <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                            </graphic>
-                                                        </Button>
-                                                        <Button fx:id="minus7" layoutY="1.3333333333333333" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                            <graphic>
-                                                                <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                            </graphic>
-                                                        </Button>
-                                                        <Label text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                            <font>
-                                                                <Font size="35.0" />
-                                                            </font>
-                                                        </Label>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="8.0" />
-                                                    </VBox.margin>
-                                                </AnchorPane>
-                                                <Button fx:id="card7" mnemonicParsing="false" onAction="#card" prefHeight="45.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد">
-                                                    <VBox.margin>
-                                                        <Insets left="54.0" right="9.0" top="-49.0" />
-                                                    </VBox.margin>
-                                                    <padding>
-                                                        <Insets top="44.0" />
-                                                    </padding>
-                                                </Button>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </StackPane>
-                                <StackPane fx:id="box8" prefHeight="320.0" prefWidth="260.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="480.0">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#but2" prefHeight="320.0" prefWidth="260.0" style="-fx-background-color: transparent;" />
-                                        <VBox prefHeight="300.0" prefWidth="260.0">
-                                            <children>
-                                                <ImageView fx:id="image8" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name8" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="331.0" styleClass="custom-font" stylesheets="@fontS.css" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="-3.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="year8" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="price8" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <AnchorPane maxHeight="62.0" prefHeight="44.0" prefWidth="202.0">
-                                                    <children>
-                                                        <Button fx:id="card8" mnemonicParsing="false" onAction="#card" prefHeight="44.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد" AnchorPane.leftAnchor="53.0" />
-                                                        <AnchorPane fx:id="Anch8" prefHeight="55.0" prefWidth="249.0" visible="false">
-                                                            <children>
-                                                                <Button fx:id="plus8" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Button fx:id="minus8" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Label text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                                    <font>
-                                                                        <Font size="35.0" />
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                        </AnchorPane>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="8.0" />
-                                                    </VBox.margin>
-                                                </AnchorPane>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </StackPane>
-                                <StackPane fx:id="box9" prefHeight="320.0" prefWidth="260.0" styleClass="back-button4" stylesheets="@st.css" AnchorPane.leftAnchor="880.0">
-                                    <children>
-                                        <Button mnemonicParsing="false" onAction="#but9" prefHeight="320.0" prefWidth="260.0" style="-fx-background-color: transparent;" />
-                                        <VBox prefHeight="300.0" prefWidth="260.0">
-                                            <children>
-                                                <ImageView fx:id="image9" fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
-                                                    <VBox.margin>
-                                                        <Insets left="10.0" top="10.0" />
-                                                    </VBox.margin>
-                                                </ImageView>
-                                                <Label fx:id="name9" alignment="TOP_CENTER" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="-3.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="year9" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <Label fx:id="price9" alignment="TOP_CENTER" layoutX="11.0" layoutY="182.0" prefHeight="18.0" prefWidth="331.0" text="Label">
-                                                    <opaqueInsets>
-                                                        <Insets />
-                                                    </opaqueInsets>
-                                                    <VBox.margin>
-                                                        <Insets top="10.0" />
-                                                    </VBox.margin>
-                                                </Label>
-                                                <AnchorPane maxHeight="62.0" prefHeight="44.0" prefWidth="202.0">
-                                                    <children>
-                                                        <Button fx:id="card9" mnemonicParsing="false" onAction="#card" prefHeight="44.0" prefWidth="150.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد" AnchorPane.leftAnchor="53.0" />
-                                                        <AnchorPane fx:id="Anch9" layoutX="1.0" prefHeight="57.0" prefWidth="249.0" visible="false">
-                                                            <children>
-                                                                <Button fx:id="plus9" maxWidth="47.0" minHeight="30.0" minWidth="36.0" mnemonicParsing="false" onAction="#plus" prefHeight="42.0" prefWidth="47.0" styleClass="button4" stylesheets="@st2.css" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="WHITE" glyphName="PLUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Button fx:id="minus9" maxWidth="48.0" minWidth="30.0" mnemonicParsing="false" onAction="#minus" prefHeight="43.0" prefWidth="48.0" styleClass="button5" stylesheets="@st2.css" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="1.0">
-                                                                    <graphic>
-                                                                        <FontAwesomeIcon fill="#fff9f9" glyphName="MINUS" scaleX="1.5" scaleY="1.5" />
-                                                                    </graphic>
-                                                                </Button>
-                                                                <Label text="0" textFill="WHITE" AnchorPane.leftAnchor="116.0" AnchorPane.topAnchor="-2.0">
-                                                                    <font>
-                                                                        <Font size="35.0" />
-                                                                    </font>
-                                                                </Label>
-                                                            </children>
-                                                        </AnchorPane>
-                                                    </children>
-                                                    <VBox.margin>
-                                                        <Insets top="8.0" />
-                                                    </VBox.margin>
-                                                </AnchorPane>
-                                            </children>
-                                        </VBox>
-                                    </children>
-                                </StackPane>
-                            </children>
-                            <VBox.margin>
-                                <Insets top="75.0" />
-                            </VBox.margin>
-                        </AnchorPane>
-                        <Button mnemonicParsing="false" onAction="#backPage" prefHeight="44.0" prefWidth="79.0" styleClass="back-button" text="قبلی">
-                            <VBox.margin>
-                                <Insets left="528.0" top="17.5" />
-                            </VBox.margin>
-                            <stylesheets>
-                                <URL value="@st.css" />
-                                <URL value="@st2.css" />
-                            </stylesheets>
+                        <ImageView fitHeight="61.0" fitWidth="64.0" layoutX="1198.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../logo.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="1118.0" layoutY="18.0" prefHeight="43.0" prefWidth="79.0" text="GS Auto" textFill="#ededed">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="searchIn" layoutX="667.0" layoutY="19.0" prefHeight="38.0" prefWidth="434.0" promptText="search" styleClass="search-bar">
+                            <font>
+                                <Font size="17.0" />
+                            </font>
+                        </TextField>
+                        <Button fx:id="searchB" layoutX="1043.0" layoutY="20.0" mnemonicParsing="false" onAction="#filter" prefHeight="43.0" prefWidth="43.0" styleClass="search-button" AnchorPane.leftAnchor="1043.0" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="20.0">
+                            <graphic>
+                                <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="9.0" layoutY="-4.0" scaleX="2.0" scaleY="2.0" selectionFill="#b77171" wrappingWidth="11.809483528137207" x="4.0" y="-5.0">
+                                    <font>
+                                        <Font size="49.0" />
+                                    </font>
+                                </FontAwesomeIcon>
+                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#nextPage" prefHeight="44.0" prefWidth="79.0" styleClass="back-button" stylesheets="@st2.css" text="بعدی">
-                            <padding>
-                                <Insets top="5.0" />
-                            </padding>
-                            <VBox.margin>
-                                <Insets left="664.0" top="-43.0" />
-                            </VBox.margin>
+                        <Button layoutX="12.0" layoutY="18.0" mnemonicParsing="false" onAction="#back" prefHeight="46.0" prefWidth="52.0" styleClass="back-button">
+                            <graphic>
+                                <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" scaleX="2.0" scaleY="2.0" wrappingWidth="12.9523344039917" />
+                            </graphic>
+                        </Button>
+                        <Button layoutX="279.0" layoutY="18.0" mnemonicParsing="false" onAction="#notif" prefHeight="46.0" prefWidth="52.0" styleClass="back-button">
+                            <graphic>
+                                <FontAwesomeIcon id="back-button" fill="#fffbfb" glyphName="SEND" scaleX="1.5" scaleY="1.5" wrappingWidth="14.0" />
+                            </graphic>
+                        </Button>
+                        <Circle fx:id="notifC" fill="#ff1f1f" layoutX="320.0" layoutY="35.0" radius="5.0" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeType="INSIDE" visible="false" AnchorPane.rightAnchor="948.3333333333333" AnchorPane.topAnchor="29.0" />
+                        <Button layoutX="91.0" layoutY="28.0" mnemonicParsing="false" onAction="#info" prefHeight="39.0" prefWidth="184.0" styleClass="back-button" text="حساب کاربری" AnchorPane.rightAnchor="998.3333333333333" AnchorPane.topAnchor="18.0">
+                            <font>
+                                <Font size="21.0" />
+                            </font>
+                        </Button>
+                        <ComboBox fx:id="brandListFilter" layoutX="957.0" layoutY="96.0" onAction="#filter" prefHeight="54.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" />
+                        <ComboBox fx:id="detaileFilter" layoutX="646.0" layoutY="96.0" onAction="#filter" prefHeight="54.0" prefWidth="300.0" styleClass="back-button" stylesheets="@st.css" />
+                        <Button fx:id="upSort" layoutX="574.0" layoutY="94.0" mnemonicParsing="false" onAction="#sortUpOrDown" prefHeight="60.0" prefWidth="57.0" visible="false">
+                            <graphic>
+                                <FontAwesomeIcon glyphName="ARROW_UP" scaleX="2.0" scaleY="2.0" />
+                            </graphic>
+                        </Button>
+                        <Button fx:id="downSort" layoutX="574.0" layoutY="94.0" mnemonicParsing="false" onAction="#sortUpOrDown" prefHeight="60.0" prefWidth="57.0">
+                            <graphic>
+                                <FontAwesomeIcon glyphName="ARROW_DOWN" scaleX="2.0" scaleY="2.0" />
+                            </graphic>
+                        </Button>
+                        <CheckBox fx:id="onlyAv" layoutX="427.0" layoutY="103.0" mnemonicParsing="false" onAction="#filter" styleClass="back-button3" stylesheets="@st.css" text="فقط موجود" />
+                  <Button layoutX="27.0" layoutY="108.0" mnemonicParsing="false" onAction="#goMain" prefHeight="44.0" prefWidth="162.0" text="صفحه ی اصلی">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="HOME" scaleX="1.5" scaleY="1.5" />
+                     </graphic>
+                  </Button>
+                  <Button layoutX="194.0" layoutY="108.0" mnemonicParsing="false" onAction="#favList" prefHeight="44.0" prefWidth="162.0" text="لیست مورد علاقه">
+                     <graphic>
+                        <FontAwesomeIcon fill="#b22424" glyphName="HEART" scaleX="1.5" scaleY="1.5" />
+                     </graphic>
+                  </Button>
+                    </children>
+                </AnchorPane>
+
+                <AnchorPane layoutX="-1.0" layoutY="-88.0" maxHeight="119.0" minHeight="73.0" prefHeight="119.0" prefWidth="1267.0" style="-fx-background-color: #1e2c31;">
+                    <children>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1230.0" layoutY="94.0" maxHeight="40.0" minHeight="27.0" mnemonicParsing="false" onAction="#close" prefHeight="31.0" prefWidth="32.0" styleClass="button3" AnchorPane.bottomAnchor="-4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="92.0">
+                            <graphic>
+                                <FontAwesomeIcon fill="WHITE" glyphName="TIMES" layoutX="19.0" layoutY="-11.0" scaleX="1.5" scaleY="1.5" text="" wrappingWidth="9.428571701049805" x="2.0" />
+                            </graphic>
+                        </Button>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1183.0" layoutY="91.0" maxHeight="40.0" minHeight="27.0" mnemonicParsing="false" onAction="#min" prefHeight="32.0" prefWidth="34.0" styleClass="button3" AnchorPane.rightAnchor="71.33333333333326">
+                            <graphic>
+                                <FontAwesomeIcon fill="#efefef" glyphName="MINUS" wrappingWidth="11.428692698478699" />
+                            </graphic>
                         </Button>
                     </children>
-                </VBox>
-                <AnchorPane layoutY="1473.0" prefHeight="400.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" AnchorPane.topAnchor="1473.0">
+                </AnchorPane>
+
+
+
+
+                <AnchorPane prefHeight="400.0" prefWidth="1265.0" style="-fx-background-color: #1E2C31;" AnchorPane.topAnchor="1640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
                     <children>
                         <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="1140.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -776,82 +172,141 @@
                             </font>
                         </Label>
                         <Label layoutX="301.0" layoutY="349.0" prefHeight="18.0" prefWidth="689.0" text="برای استفاده از این مطالب، داشتن «هدف غیرتجاری» و ذکر «منبع» کافیست. تمام حقوق اين وب‌سايت نیز برای شرکت جی اس خودرو است." textFill="WHITE" />
-                  <Button layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#buyTheCard" prefHeight="44.0" prefWidth="79.0" styleClass="back-button" stylesheets="@st2.css" text="خرید">
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                  </Button>
-                  <Label fx:id="error" layoutX="40.0" layoutY="73.0" textFill="RED" />
                     </children>
                 </AnchorPane>
-                <AnchorPane prefHeight="127.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;" stylesheets="@st2.css" AnchorPane.topAnchor="50.0">
+
+                <AnchorPane layoutX="-15.0" layoutY="197.0" prefHeight="1448.0" prefWidth="1280.0" style="-fx-background-color: #314953;">
                     <children>
-                        <ImageView fitHeight="61.0" fitWidth="64.0" layoutX="1198.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0">
-                            <image>
-                                <Image url="@../../../logo.png" />
-                            </image>
-                        </ImageView>
-                        <Label alignment="CENTER" layoutX="1118.0" layoutY="18.0" prefHeight="43.0" prefWidth="98.0" text="GS Auto" textFill="#ededed" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="18.0">
-                            <font>
-                                <Font name="System Bold" size="21.0" />
-                            </font>
-                        </Label>
-                        <TextField layoutX="667.0" layoutY="19.0" prefHeight="38.0" prefWidth="434.0" promptText="search" styleClass="search-bar" AnchorPane.rightAnchor="182.0" AnchorPane.topAnchor="18.0">
-                            <font>
-                                <Font size="17.0" />
-                            </font>
-                        </TextField>
-                        <Button layoutX="1043.0" layoutY="19.0" mnemonicParsing="false" onAction="#search" prefHeight="43.0" prefWidth="43.0" styleClass="search-button" AnchorPane.rightAnchor="184.0" AnchorPane.topAnchor="20.0">
-                            <graphic>
-                                <FontAwesomeIcon fill="WHITE" glyphName="SEARCH" layoutX="9.0" layoutY="-4.0" scaleX="2.0" scaleY="2.0" selectionFill="#b77171" wrappingWidth="11.809483528137207" x="4.0" y="-5.0">
-                                    <font>
-                                        <Font size="49.0" />
-                                    </font>
-                                </FontAwesomeIcon>
-                            </graphic>
-                        </Button>
-                        <Button layoutX="12.0" layoutY="18.0" mnemonicParsing="false" onAction="#back" prefHeight="46.0" prefWidth="52.0" styleClass="back-button">
-                            <graphic>
-                                <FontAwesomeIcon fill="WHITE" glyphName="ARROW_LEFT" scaleX="2.0" scaleY="2.0" selectionFill="#c00000" wrappingWidth="12.9523344039917" />
-                            </graphic>
-                        </Button>
-                        <Button fx:id="loginB" layoutX="81.0" layoutY="18.0" mnemonicParsing="false" onAction="#login" prefHeight="39.0" prefWidth="184.0" styleClass="back-button" text="ورود/ثبت نام">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </Button>
-                        <AnchorPane layoutX="3.0" layoutY="71.0" prefHeight="46.0" prefWidth="1259.0" style="-fx-background-color: #1e2c31;" styleClass="navbar">
+                        <AnchorPane fx:id="item13" layoutX="40.0" layoutY="1060.0" prefHeight="340.0" prefWidth="1200.0" visible="false">
                             <children>
-                                <Button layoutX="1111.0" layoutY="9.0" mnemonicParsing="false" onAction="#goMian" prefHeight="29.0" prefWidth="125.0" text="صفحه اصلی" AnchorPane.bottomAnchor="7.666666666666671" AnchorPane.rightAnchor="23.0" />
-                                <Button layoutX="775.0" layoutY="4.0" mnemonicParsing="false" onAction="#favList" prefHeight="35.0" prefWidth="174.0" text="لیست مورد علاقه" AnchorPane.bottomAnchor="5.333333333333336" AnchorPane.leftAnchor="775.0" AnchorPane.rightAnchor="296.33333333333337" AnchorPane.topAnchor="4.0" />
-                                <Button layoutX="949.0" layoutY="9.0" mnemonicParsing="false" onAction="#newList" prefHeight="29.0" prefWidth="132.0" text="جدید ترین ها" AnchorPane.bottomAnchor="7.666666666666671" AnchorPane.leftAnchor="949.0" AnchorPane.rightAnchor="153.66666666666674" />
+                                <ImageView fx:id="image13" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                                <TextArea fx:id="textArea13" editable="false" layoutX="340.0" layoutY="20.0" prefHeight="300.0" prefWidth="600.0" style="-fx-control-inner-background: #314953;" />
+                                <Button fx:id="addToCardB13" layoutX="960.0" layoutY="20.0" mnemonicParsing="false" onAction="#addToCard" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد خرید" />
+                                <Button fx:id="addToFavListB13" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#addToFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="افزودن به لیست مورد علاقه ها" />
+                                <Label fx:id="error13" layoutX="960.0" layoutY="280.0" prefHeight="40.0" prefWidth="220.0">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="removeFromFavListB13" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFromFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="حذف از لیست مورد علاقه ها" visible="false" />
+                                <AnchorPane fx:id="editCard13" layoutX="960.0" layoutY="20.0" prefHeight="40.0" prefWidth="220.0" visible="false">
+                                    <children>
+                                        <Button fx:id="editCardMB13" layoutX="10.0" mnemonicParsing="false" onAction="#editCardM" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="-" />
+                                        <Button fx:id="editCardPB13" layoutX="160.0" mnemonicParsing="false" onAction="#editCardP" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="+">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="cardQ13" alignment="CENTER" layoutX="80.0" prefHeight="40.0" prefWidth="60.0" text="1" textFill="WHITE">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
                             </children>
                         </AnchorPane>
-                        <Button layoutX="279.0" layoutY="18.0" mnemonicParsing="false" onAction="#notif" prefHeight="46.0" prefWidth="52.0" styleClass="back-button">
-                            <graphic>
-                                <FontAwesomeIcon fill="WHITE" glyphName="SEND" scaleX="1.5" scaleY="1.5" />
-                            </graphic>
-                        </Button>
-                        <Circle fx:id="notifC" fill="#ff1f1f" layoutX="320.0" layoutY="35.0" radius="5.0" scaleX="0.7" scaleY="0.7" stroke="BLACK" strokeType="INSIDE" visible="false" AnchorPane.leftAnchor="320.66666666666663" AnchorPane.rightAnchor="957.3333333333333" AnchorPane.topAnchor="29.0" />
-                        <Button fx:id="infoB" layoutX="91.0" layoutY="28.0" mnemonicParsing="false" onAction="#info" prefHeight="39.0" prefWidth="184.0" styleClass="back-button" text="حساب کاربری" visible="false" AnchorPane.rightAnchor="998.3333333333333" AnchorPane.topAnchor="18.0">
-                            <font>
-                                <Font size="21.0" />
-                            </font>
-                        </Button>
-                    </children>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </AnchorPane>
-                <AnchorPane prefHeight="50.0" prefWidth="1280.0" style="-fx-background-color: #1E2C31;">
-                    <children>
-                        <Button alignment="CENTER" layoutX="36.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="2.0" />
-                        <Button alignment="CENTER" layoutX="1220.0" layoutY="12.0" mnemonicParsing="false" onAction="#min" prefHeight="10.0" prefWidth="60.0" styleClass="back-button" stylesheets="@st2.css" AnchorPane.rightAnchor="95.0" AnchorPane.topAnchor="2.0" />
-                        <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" layoutX="1224.0" layoutY="40.0" scaleX="3.0" scaleY="3.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="18.0" />
-                        <FontAwesomeIcon fill="WHITE" glyphName="MINUS" layoutX="1161.0" layoutY="33.0" scaleX="3.0" scaleY="3.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="20.714285850524902" />
-                    </children>
-                </AnchorPane>
-            </children>
-        </AnchorPane>
+                        <AnchorPane fx:id="item12" layoutX="40.0" layoutY="700.0" prefHeight="340.0" prefWidth="1200.0" visible="false">
+                            <children>
+                                <ImageView fx:id="image12" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                                <TextArea fx:id="textArea12" editable="false" layoutX="340.0" layoutY="20.0" prefHeight="300.0" prefWidth="600.0" style="-fx-control-inner-background: #314953;" />
+                                <Button fx:id="addToCardB12" layoutX="960.0" layoutY="20.0" mnemonicParsing="false" onAction="#addToCard" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد خرید" />
+                                <Button fx:id="addToFavListB12" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#addToFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="افزودن به لیست مورد علاقه ها" />
+                                <Label fx:id="error12" layoutX="960.0" layoutY="280.0" prefHeight="40.0" prefWidth="220.0">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="removeFromFavListB12" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFromFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="حذف از لیست مورد علاقه ها" visible="false" />
+                                <AnchorPane fx:id="editCard12" layoutX="960.0" layoutY="20.0" prefHeight="40.0" prefWidth="220.0" visible="false">
+                                    <children>
+                                        <Button fx:id="editCardMB12" layoutX="10.0" mnemonicParsing="false" onAction="#editCardM" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="-" />
+                                        <Button fx:id="editCardPB12" layoutX="160.0" mnemonicParsing="false" onAction="#editCardP" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="+">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="cardQ12" alignment="CENTER" layoutX="80.0" prefHeight="40.0" prefWidth="60.0" text="1" textFill="WHITE">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="item1" layoutX="40.0" prefHeight="340.0" prefWidth="1200.0" visible="false">
+                            <children>
+                                <ImageView fx:id="image1" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                                <TextArea fx:id="textArea1" editable="false" layoutX="340.0" layoutY="20.0" prefHeight="300.0" prefWidth="600.0" style="-fx-control-inner-background: #314953;" />
+                                <Button fx:id="addToCardB1" layoutX="960.0" layoutY="20.0" mnemonicParsing="false" onAction="#addToCard" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد خرید" />
+                                <Button fx:id="addToFavListB1" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#addToFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="افزودن به لیست مورد علاقه ها" />
+                                <Label fx:id="error1" layoutX="960.0" layoutY="280.0" prefHeight="40.0" prefWidth="220.0">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="removeFromFavListB1" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFromFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="حذف از لیست مورد علاقه ها" visible="false" />
+                                <AnchorPane fx:id="editCard1" layoutX="960.0" layoutY="20.0" prefHeight="40.0" prefWidth="220.0" visible="false">
+                                    <children>
+                                        <Button fx:id="editCardMB1" layoutX="10.0" mnemonicParsing="false" onAction="#editCardM" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="-" />
+                                        <Button fx:id="editCardPB1" layoutX="160.0" mnemonicParsing="false" onAction="#editCardP" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="+">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="cardQ1" alignment="CENTER" layoutX="80.0" prefHeight="40.0" prefWidth="60.0" text="1" textFill="WHITE">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="item11" layoutX="40.0" layoutY="340.0" prefHeight="340.0" prefWidth="1200.0" visible="false">
+                            <children>
+                                <ImageView fx:id="image11" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                                <TextArea fx:id="textArea11" editable="false" layoutX="340.0" layoutY="20.0" prefHeight="300.0" prefWidth="600.0" style="-fx-control-inner-background: #314953;" />
+                                <Button fx:id="addToCardB11" layoutX="960.0" layoutY="20.0" mnemonicParsing="false" onAction="#addToCard" prefHeight="40.0" prefWidth="220.0" styleClass="button4" stylesheets="@st2.css" text="افزودن به سبد خرید" />
+                                <Button fx:id="addToFavListB11" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#addToFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="افزودن به لیست مورد علاقه ها" />
+                                <Label fx:id="error11" layoutX="960.0" layoutY="280.0" prefHeight="40.0" prefWidth="220.0">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="removeFromFavListB11" layoutX="960.0" layoutY="80.0" mnemonicParsing="false" onAction="#removeFromFavList" prefHeight="40.0" prefWidth="220.0" styleClass="button5" stylesheets="@st2.css" text="حذف از لیست مورد علاقه ها" visible="false" />
+                                <AnchorPane fx:id="editCard11" layoutX="960.0" layoutY="20.0" prefHeight="40.0" prefWidth="220.0" visible="false">
+                                    <children>
+                                        <Button fx:id="editCardMB11" layoutX="10.0" mnemonicParsing="false" onAction="#editCardM" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="-" />
+                                        <Button fx:id="editCardPB11" layoutX="160.0" mnemonicParsing="false" onAction="#editCardP" prefHeight="40.0" prefWidth="50.0" styleClass="button4" stylesheets="@st2.css" text="+">
+                                            <font>
+                                                <Font size="16.0" />
+                                            </font>
+                                        </Button>
+                                        <Label fx:id="cardQ11" alignment="CENTER" layoutX="80.0" prefHeight="40.0" prefWidth="60.0" text="1" textFill="WHITE">
+                                            <font>
+                                                <Font size="20.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                        <Button fx:id="nextPageB" layoutX="1160.0" layoutY="1400.0" mnemonicParsing="false" onAction="#nextPage" styleClass="button4" stylesheets="@st2.css" text="صفحه ی بعد" />
+                        <Button fx:id="prePageB" layoutX="20.0" layoutY="1400.0" mnemonicParsing="false" onAction="#prePage" styleClass="button4" stylesheets="@st2.css" text="صفحه ی قبل" visible="false" />
+                  <Label fx:id="totalPrice" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="737.0" layoutY="1400.0" prefHeight="40.0" prefWidth="318.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buyB" layoutX="1062.0" layoutY="1400.0" mnemonicParsing="false" onAction="#buy" styleClass="button4" stylesheets="@st2.css" text="پرداخت" />
+                  <Label fx:id="buyError" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="170.0" layoutY="1400.0" prefHeight="40.0" prefWidth="490.0" textFill="RED">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                    </children></AnchorPane>
+            </children></AnchorPane>
     </content>
 </ScrollPane>

@@ -77,6 +77,7 @@ public class editCar {
         if(tempCarPack!=null){
             ((admin) Abdoll.getCurrentAcc()).setTempForEdit(null);
             load(tempCarPack);
+            chooseCar.setValue(tempCarPack);
             chooseCar.setVisible(false);
             fromMain=true;
         }

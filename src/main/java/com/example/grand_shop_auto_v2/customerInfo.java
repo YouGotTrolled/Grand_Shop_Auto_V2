@@ -105,8 +105,8 @@ public class customerInfo {
     }
 
     @FXML
-    void favList(ActionEvent event) {
-        Abdoll.goTo("favList",event);
+    void history(ActionEvent event) {
+        Abdoll.goTo("history",event);
     }
 
     @FXML

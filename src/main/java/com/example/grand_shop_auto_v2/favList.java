@@ -13,7 +13,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class main {
+public class favList {
 
     @FXML
     private Button addToCardB1;
@@ -52,18 +52,6 @@ public class main {
     private Label cardQ13;
 
     @FXML
-    private Button edit1;
-
-    @FXML
-    private Button edit11;
-
-    @FXML
-    private Button edit12;
-
-    @FXML
-    private Button edit13;
-
-    @FXML
     private AnchorPane editCard1;
 
     @FXML
@@ -98,9 +86,6 @@ public class main {
 
     @FXML
     private ImageView image13;
-
-    @FXML
-    private Button infoB;
 
     @FXML
     private AnchorPane item1;
@@ -168,12 +153,6 @@ public class main {
     @FXML
     private Button downSort;
 
-    @FXML
-    private Button favListB;
-
-    @FXML
-    private Button cardB;
-
     //
     AnchorPane[] items;
     TextArea[] textAreas;
@@ -181,7 +160,6 @@ public class main {
     ImageView[] image;
     Label[] errors;
     AnchorPane[] editCard;
-    Button[] editB;
     Label[] cardQ;
     Button[] addToCardB;
     Button[] addToFavB;
@@ -196,18 +174,10 @@ public class main {
     @FXML
     void initialize() {
         searchIn.setOnAction(e->filter(e));
+        System.out.println(((customer) Abdoll.getCurrentAcc()).getPurchaseHistory());
         //
-        if(Abdoll.getCurrentAcc()!=null){
-            loginB.setVisible(false);
-            infoB.setVisible(true);
-            if(Abdoll.getCurrentAcc() instanceof customer){
-                if(((customer) Abdoll.getCurrentAcc()).getNotification()){
-                    notifC.setVisible(true);
-                }
-                favListB.setVisible(true);
-                cardB.setVisible(true);
-
-            }
+        if(((customer) Abdoll.getCurrentAcc()).getNotification()){
+            notifC.setVisible(true);
         }
         //
         items= new AnchorPane[]{item1, item11, item12, item13};
@@ -216,7 +186,6 @@ public class main {
         image = new ImageView[]{image1, image11, image12, image13};
         errors = new Label[]{error1, error11, error12, error13};
         editCard = new AnchorPane[]{editCard1, editCard11, editCard12, editCard13};
-        editB = new Button[]{edit1, edit11, edit12, edit13};
         cardQ = new Label[]{cardQ1, cardQ11, cardQ12, cardQ13};
         addToCardB = new Button[]{addToCardB1, addToCardB11, addToCardB12, addToCardB13};
         addToFavB = new Button[]{addToFavListB1, addToFavListB11, addToFavListB12, addToFavListB13};
@@ -255,31 +224,22 @@ public class main {
                 ,car.getName(),car.getYear(),car.getPrice(),carPack.getQuantity(),car.getBrand(),isAvillable,car.getDetail());
         textAreas[pos].setText(massage);
         //
-        if(Abdoll.getCurrentAcc()==null){
+        int i=pos+4*page;
+        customer customer=((customer) Abdoll.getCurrentAcc());
+        if(customer.getCard().stream().anyMatch(o->o.getCar().equals(list.get(i).getCar()))){
+            carPack temp=customer.getCard().stream().filter(o->o.getCar().equals(list.get(i).getCar())).findAny().get();
             addToCardB[pos].setVisible(false);
-            addToFavB[pos].setVisible(false);
-            editB[pos].setVisible(false);
-        }else if(Abdoll.getCurrentAcc() instanceof customer){
-            editB[pos].setVisible(false);
-            int i=pos+4*page;
-            customer customer=((customer) Abdoll.getCurrentAcc());
-            if(customer.getCard().stream().anyMatch(o->o.getCar().equals(list.get(i).getCar()))){
-                carPack temp=customer.getCard().stream().filter(o->o.getCar().equals(list.get(i).getCar())).findAny().get();
-                addToCardB[pos].setVisible(false);
-                editCard[pos].setVisible(true);
-                cardQ[pos].setText(String.valueOf(temp.getQuantity()));
-            }else{
-                cardQ[pos].setText("1");
-            }
-            if(customer.getFavouriteCard().stream().anyMatch(o->o.equals(list.get(i).getCar()))){
-                car temp=customer.getFavouriteCard().stream().filter(o->o.equals(list.get(i).getCar())).findAny().get();
-                addToFavB[pos].setVisible(false);
-                removeFromFavListB[pos].setVisible(true);
-            }
-        }else {
-            addToCardB[pos].setVisible(false);
-            addToFavB[pos].setVisible(false);
+            editCard[pos].setVisible(true);
+            cardQ[pos].setText(String.valueOf(temp.getQuantity()));
+        }else{
+            cardQ[pos].setText("1");
         }
+        if(customer.getFavouriteCard().stream().anyMatch(o->o.equals(list.get(i).getCar()))){
+            car temp=customer.getFavouriteCard().stream().filter(o->o.equals(list.get(i).getCar())).findAny().get();
+            addToFavB[pos].setVisible(false);
+            removeFromFavListB[pos].setVisible(true);
+        }
+
     }
 
     void firstIni(){
@@ -315,7 +275,7 @@ public class main {
     @FXML
     void addToCard(ActionEvent event) {
         //
-        int selcted = select(event, 12);
+        int selcted=select(event,12);
         //
         if (list.get(selcted).getCar().isAvailability() && list.get(selcted).getQuantity() > 0) {
             ((customer) Abdoll.getCurrentAcc()).addToCard(new carPack(list.get(selcted).getCar(), 1));
@@ -342,15 +302,6 @@ public class main {
     @FXML
     void close(ActionEvent event) {
         Abdoll.closeTheApp();
-    }
-
-    @FXML
-    void editB(ActionEvent event) {
-        //
-        int selcted=select(event,6);
-        //
-        ((admin) Abdoll.getCurrentAcc()).setTempForEdit(list.get(selcted));
-        Abdoll.goTo("editCar",event);
     }
 
     @FXML
@@ -388,22 +339,13 @@ public class main {
     }
 
     @FXML
-    void favList(ActionEvent event) {
-        Abdoll.goTo("favList",event);
-    }
-
-    @FXML
     void info(ActionEvent event) {
-        if(Abdoll.getCurrentAcc() instanceof customer){
-            Abdoll.goTo("customerInfo",event);
-        }else {
-            Abdoll.goTo("adminInfo",event);
-        }
+        Abdoll.goTo("customerInfo",event);
     }
 
     @FXML
-    void login(ActionEvent event) {
-        Abdoll.goTo("logIn",event);
+    void goMain(ActionEvent event) {
+        Abdoll.goTo("main",event);
     }
 
     @FXML
@@ -419,13 +361,9 @@ public class main {
 
     @FXML
     void notif(ActionEvent event) {
-        if(Abdoll.getCurrentAcc()==null){
-            Abdoll.goTo("logIn", event);
-        }else {
-            Abdoll.goTo("userChat", event);
-            if(Abdoll.getCurrentAcc() instanceof customer)
-                ((customer) Abdoll.getCurrentAcc()).setNotification(false);
-        }
+        Abdoll.goTo("userChat", event);
+        if(Abdoll.getCurrentAcc() instanceof customer)
+            ((customer) Abdoll.getCurrentAcc()).setNotification(false);
     }
 
     @FXML
@@ -466,9 +404,10 @@ public class main {
     @FXML
     void filter(ActionEvent event) {
         if (brandListFilter.getValue().equals("All Cars")) {
-            list = Abdoll.getAllCars();
-        } else {
+            list = Abdoll.getAllCars().stream().filter(o->((customer) Abdoll.getCurrentAcc()).getFavouriteCard().contains(o.getCar())).collect(Collectors.toList());
+        }else{
             list = Abdoll.getAllBrand().stream().filter(o -> o.getBrandName().equals(brandListFilter.getValue())).findAny().map(o -> o.getBrandList()).get();
+            list=list.stream().filter(o->((customer) Abdoll.getCurrentAcc()).getFavouriteCard().contains(o.getCar())).collect(Collectors.toList());
         }
         //
         if (!searchIn.getText().isEmpty())
@@ -532,4 +471,3 @@ public class main {
         filter(event);
     }
 }
-enum filterOptions{NAME,BRAND,PRICE,YEAR,QUANTITY}

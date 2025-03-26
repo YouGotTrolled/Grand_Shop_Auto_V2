@@ -2,320 +2,316 @@ package com.example.grand_shop_auto_v2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class cardd {
 
     @FXML
-    private AnchorPane Anch1;
+    private Button addToCardB1;
 
     @FXML
-    private AnchorPane Anch2;
+    private Button addToCardB11;
 
     @FXML
-    private AnchorPane Anch3;
+    private Button addToCardB12;
 
     @FXML
-    private AnchorPane Anch4;
+    private Button addToCardB13;
 
     @FXML
-    private AnchorPane Anch5;
+    private Button addToFavListB1;
 
     @FXML
-    private AnchorPane Anch6;
+    private Button addToFavListB11;
 
     @FXML
-    private AnchorPane Anch7;
+    private Button addToFavListB12;
 
     @FXML
-    private AnchorPane Anch8;
+    private Button addToFavListB13;
 
     @FXML
-    private AnchorPane Anch9;
+    private Label cardQ1;
 
     @FXML
-    private StackPane box1;
+    private Label cardQ11;
 
     @FXML
-    private StackPane box2;
+    private Label cardQ12;
 
     @FXML
-    private StackPane box3;
+    private Label cardQ13;
 
     @FXML
-    private StackPane box4;
+    private AnchorPane editCard1;
 
     @FXML
-    private StackPane box5;
+    private AnchorPane editCard11;
 
     @FXML
-    private StackPane box6;
+    private AnchorPane editCard12;
 
     @FXML
-    private StackPane box7;
+    private AnchorPane editCard13;
 
     @FXML
-    private StackPane box8;
+    private Label error1;
 
     @FXML
-    private StackPane box9;
+    private Label error11;
 
     @FXML
-    private Button card1;
+    private Label error12;
 
     @FXML
-    private Button card2;
-
-    @FXML
-    private Button card3;
-
-    @FXML
-    private Button card4;
-
-    @FXML
-    private Button card5;
-
-    @FXML
-    private Button card6;
-
-    @FXML
-    private Button card7;
-
-    @FXML
-    private Button card8;
-
-    @FXML
-    private Button card9;
+    private Label error13;
 
     @FXML
     private ImageView image1;
 
     @FXML
-    private ImageView image2;
+    private ImageView image11;
 
     @FXML
-    private ImageView image3;
+    private ImageView image12;
 
     @FXML
-    private ImageView image4;
+    private ImageView image13;
 
     @FXML
-    private ImageView image5;
+    private AnchorPane item1;
 
     @FXML
-    private ImageView image6;
+    private AnchorPane item11;
 
     @FXML
-    private ImageView image7;
+    private AnchorPane item12;
 
     @FXML
-    private ImageView image8;
-
-    @FXML
-    private ImageView image9;
-
-    @FXML
-    private Button infoB;
+    private AnchorPane item13;
 
     @FXML
     private Button loginB;
 
     @FXML
-    private Button minus1;
-
-    @FXML
-    private Button minus2;
-
-    @FXML
-    private Button minus3;
-
-    @FXML
-    private Button minus4;
-
-    @FXML
-    private Button minus5;
-
-    @FXML
-    private Button minus6;
-
-    @FXML
-    private Button minus7;
-
-    @FXML
-    private Button minus8;
-
-    @FXML
-    private Button minus9;
-
-    @FXML
-    private Label name1;
-
-    @FXML
-    private Label name2;
-
-    @FXML
-    private Label name3;
-
-    @FXML
-    private Label name4;
-
-    @FXML
-    private Label name5;
-
-    @FXML
-    private Label name6;
-
-    @FXML
-    private Label name7;
-
-    @FXML
-    private Label name8;
-
-    @FXML
-    private Label name9;
+    private Button nextPageB;
 
     @FXML
     private Circle notifC;
 
     @FXML
-    private Button plus1;
+    private Button prePageB;
 
     @FXML
-    private Button plus2;
+    private Button removeFromFavListB1;
 
     @FXML
-    private Button plus3;
+    private Button removeFromFavListB11;
 
     @FXML
-    private Button plus4;
+    private Button removeFromFavListB12;
 
     @FXML
-    private Button plus5;
+    private Button removeFromFavListB13;
 
     @FXML
-    private Button plus6;
+    private TextField searchIn;
 
     @FXML
-    private Button plus7;
+    private TextArea textArea1;
 
     @FXML
-    private Button plus8;
+    private TextArea textArea11;
 
     @FXML
-    private Button plus9;
+    private TextArea textArea12;
 
     @FXML
-    private Label price1;
+    private TextArea textArea13;
 
     @FXML
-    private Label price2;
+    private ComboBox<String> brandListFilter;
 
     @FXML
-    private Label price3;
+    private ComboBox<filterOptions> detaileFilter;
 
     @FXML
-    private Label price4;
+    private Button upSort;
 
     @FXML
-    private Label price5;
+    private CheckBox onlyAv;
 
     @FXML
-    private Label price6;
+    private Button downSort;
 
     @FXML
-    private Label price7;
+    private Button buyB;
 
     @FXML
-    private Label price8;
+    private Label totalPrice;
 
     @FXML
-    private Label price9;
+    private Label buyError;
+
+    //
+    AnchorPane[] items;
+    TextArea[] textAreas;
+    Button[] removeFromFavListB;
+    ImageView[] image;
+    Label[] errors;
+    AnchorPane[] editCard;
+    Label[] cardQ;
+    Button[] addToCardB;
+    Button[] addToFavB;
+    //
+    List<carPack> list;
+    int page=0;
+    int size;
+    int pageSize;
+    char sortOption='u';
+    List<car> tempList;
+    long TP;
+    //
 
     @FXML
-    private Label q1;
-
-    @FXML
-    private Label year1;
-
-    @FXML
-    private Label year2;
-
-    @FXML
-    private Label year3;
-
-    @FXML
-    private Label year4;
-
-    @FXML
-    private Label year5;
-
-    @FXML
-    private Label year6;
-
-    @FXML
-    private Label year7;
-
-    @FXML
-    private Label year8;
-
-    @FXML
-    private Label year9;
-
-    @FXML
-    private Label error;
-
-    int page;
-    ArrayList<car> carList;
-    int thisPage;
-    AnchorPane[] anchorPanes;
-    StackPane[] stackPanes;
-    Button[] cards;
-    Button[] minuses;
-    Button[] pluses;
-    ImageView[] images;
-    Label[] names;
-    Label[] prices;
-    Label[] years;
-
-    @FXML
-    void initialize(){
-        if(Abdoll.getCurrentAcc()!=null){
-            loginB.setVisible(false);
-            infoB.setVisible(true);
+    void initialize() {
+        searchIn.setOnAction(e->filter(e));
+        //
+        if(((customer) Abdoll.getCurrentAcc()).getNotification()){
+            notifC.setVisible(true);
+        }
+        if(((customer) Abdoll.getCurrentAcc()).getCard().isEmpty()) {
+            buyB.setVisible(false);
+            totalPrice.setVisible(false);
         }
         //
-        page=1;
-        // AnchorPane array
-        anchorPanes = new AnchorPane[]{Anch1, Anch2, Anch3, Anch4, Anch5, Anch6, Anch7, Anch8, Anch9};
-        // StackPane array
-        stackPanes= new StackPane[]{box1, box2, box3, box4, box5, box6, box7, box8, box9};
-        for (StackPane stackPane : stackPanes) {
-            stackPane.setVisible(false);
-        }
-        // Button arrays
-        cards = new Button[]{card1, card2, card3, card4, card5, card6, card7, card8, card9};
-        minuses = new Button[]{minus1, minus2, minus3, minus4, minus5, minus6, minus7, minus8, minus9};
-        pluses = new Button[]{plus1, plus2, plus3, plus4, plus5, plus6, plus7, plus8, plus9};
-
-        // ImageView array
-        images = new ImageView[]{image1, image2, image3, image4, image5, image6, image7, image8, image9};
-
-        // Label arrays
-        names = new Label[]{name1, name2, name3, name4, name5, name6, name7, name8, name9};
-        prices = new Label[]{price1, price2, price3, price4, price5, price6, price7, price8, price9};
-        years = new Label[]{year1, year2, year3, year4, year5, year6, year7, year8, year9};
+        items= new AnchorPane[]{item1, item11, item12, item13};
+        textAreas= new TextArea[]{textArea1, textArea11, textArea12, textArea13};
+        removeFromFavListB = new Button[]{removeFromFavListB1, removeFromFavListB11, removeFromFavListB12, removeFromFavListB13};
+        image = new ImageView[]{image1, image11, image12, image13};
+        errors = new Label[]{error1, error11, error12, error13};
+        editCard = new AnchorPane[]{editCard1, editCard11, editCard12, editCard13};
+        cardQ = new Label[]{cardQ1, cardQ11, cardQ12, cardQ13};
+        addToCardB = new Button[]{addToCardB1, addToCardB11, addToCardB12, addToCardB13};
+        addToFavB = new Button[]{addToFavListB1, addToFavListB11, addToFavListB12, addToFavListB13};
         //
-        carList=new ArrayList<>(((customer) Abdoll.getCurrentAcc()).getCard().stream().map(o->o.getCar()).collect(Collectors.toList()));
-        load();
+        detaileFilter.getItems().addAll(filterOptions.values());
+        detaileFilter.setValue(filterOptions.NAME);
+        brandListFilter.getItems().add("All Cars");
+        brandListFilter.getItems().addAll(Abdoll.getAllBrand().stream().map(o->o.getBrandName()).toList());
+        brandListFilter.setValue("All Cars");
+        //
+        loadTempList();
+        filter(new ActionEvent());
+        loadTotalPrice();
+    }
+
+    void resetPage(){
+        page=0;
+        loadPage();
+    }
+
+    void loadItem(carPack carPack,int pos){
+        car car=carPack.getCar();
+        //
+        items[pos].setVisible(true);
+        //
+        image[pos].setImage(new Image(car.getPicture().toURI().toString()));
+        //
+        String isAvillable;
+        if(car.isAvailability()){
+            isAvillable="هست";
+        }else{
+            isAvillable="نیست";
+        }
+        String massage=String.format("نام خودرو:%s   سال تولید:%d"+"\n"+
+                        "قیمت:%,d تومن  تعداد موجود در فروشگاه:%d"+"\n"+
+                        "برند تولید:%s   موجود%s"+"\n"+
+                        "%s"
+                ,car.getName(),car.getYear(),car.getPrice(),carPack.getQuantity(),car.getBrand(),isAvillable,car.getDetail());
+        textAreas[pos].setText(massage);
+        //
+        int i=pos+4*page;
+        customer customer=((customer) Abdoll.getCurrentAcc());
+        if(customer.getCard().stream().anyMatch(o->o.getCar().equals(list.get(i).getCar()))){
+            carPack temp=customer.getCard().stream().filter(o->o.getCar().equals(list.get(i).getCar())).findAny().get();
+            addToCardB[pos].setVisible(false);
+            editCard[pos].setVisible(true);
+            cardQ[pos].setText(String.valueOf(temp.getQuantity()));
+        }else{
+            cardQ[pos].setText("1");
+        }
+        if(customer.getFavouriteCard().stream().anyMatch(o->o.equals(list.get(i).getCar()))){
+            car temp=customer.getFavouriteCard().stream().filter(o->o.equals(list.get(i).getCar())).findAny().get();
+            addToFavB[pos].setVisible(false);
+            removeFromFavListB[pos].setVisible(true);
+        }
+
+    }
+
+    void loadTempList(){
+        tempList=((customer) Abdoll.getCurrentAcc()).getCard().stream().map(o2->o2.getCar()).collect(Collectors.toList());
+    }
+
+    void firstIni(){
+        size=list.size();
+        pageSize=size/4;
+        if(size%4!=0)
+            pageSize++;
+        if(pageSize<2)
+            nextPageB.setVisible(false);
+    }
+
+    void loadPage(){
+        for (int i = 0; i < 4; i++) {
+            items[i].setVisible(false);
+            removeFromFavListB[i].setVisible(false);
+            addToFavB[i].setVisible(true);
+            editCard[i].setVisible(false);
+            addToCardB[i].setVisible(true);
+        }
+        int thisPageQ;
+        if (size >= 4 * (page + 1)) {
+            thisPageQ = 4;
+        } else {
+            thisPageQ = (size - 4 * page) % 4;
+        }
+        //
+        for (int i = 0; i < thisPageQ;)
+            loadItem(list.get(i+4*page),i++);
+        nextPageB.setVisible(size!=thisPageQ+page*4);
+        prePageB.setVisible(page != 0);
+    }
+
+    @FXML
+    void addToCard(ActionEvent event) {
+        //
+        int selcted=select(event,12);
+        //
+        if (list.get(selcted).getCar().isAvailability() && list.get(selcted).getQuantity() > 0) {
+            ((customer) Abdoll.getCurrentAcc()).addToCard(new carPack(list.get(selcted).getCar(), 1));
+            addToCardB[selcted % 4].setVisible(false);
+            editCard[selcted % 4].setVisible(true);
+        }
+    }
+
+    @FXML
+    void addToFavList(ActionEvent event) {
+        //
+        int selcted=select(event,15);
+        //
+        ((customer) Abdoll.getCurrentAcc()).addToFavouriteCard(list.get(selcted).getCar());
+        addToFavB[selcted%4].setVisible(false);
+        removeFromFavListB[selcted%4].setVisible(true);
     }
 
     @FXML
@@ -324,81 +320,61 @@ public class cardd {
     }
 
     @FXML
-    void but1(ActionEvent event) {
-
-    }
-
-    @FXML
-    void but2(ActionEvent event) {
-
-    }
-
-    @FXML
-    void but3(ActionEvent event) {
-
-    }
-
-    @FXML
-    void but4(ActionEvent event) {
-
-    }
-
-    @FXML
-    void but5(ActionEvent event) {
-
-    }
-
-    @FXML
-    void but6(ActionEvent event) {
-
-    }
-
-    @FXML
-    void but7(ActionEvent event) {
-
-    }
-
-    @FXML
-    void but9(ActionEvent event) {
-
-    }
-
-    @FXML
-    void card(ActionEvent event) {
-        if(Abdoll.getCurrentAcc() instanceof customer) {
-            int temp = ((int) ((Button) event.getSource()).getId().charAt(4)) - 48;
-            ((customer) Abdoll.getCurrentAcc()).addToCard(new carPack(carList.get(temp + 9 * (page - 1)), 1));
-            System.out.println("kk");
-        }
-    }
-
-    @FXML
     void close(ActionEvent event) {
-        System.exit(0);
+        Abdoll.closeTheApp();
+    }
+
+    @FXML
+    void editCardM(ActionEvent event) {
+        //
+        int selcted=select(event,12);
+        //
+        customer customer=((customer) Abdoll.getCurrentAcc());
+        //
+        carPack temp=customer.getCard().stream().filter(o->o.getCar().equals(list.get(selcted).getCar())).findAny().get();
+        int q=temp.getQuantity()-1;
+        if(q!=0) {
+            temp.setQuantity(q);
+            cardQ[selcted%4].setText(String.valueOf(q));
+        }else{
+            ((customer) Abdoll.getCurrentAcc()).removeFromCard(list.get(selcted));
+            editCard[selcted%4].setVisible(false);
+            addToCardB[selcted%4].setVisible(true);
+            loadTempList();
+            filter(event);
+        }
+        loadTotalPrice();
+    }
+
+    @FXML
+    void editCardP(ActionEvent event) {
+        //
+        int selcted=select(event,12);
+        //
+        customer customer=((customer) Abdoll.getCurrentAcc());
+        //
+        carPack temp=customer.getCard().stream().filter(o->o.getCar().equals(list.get(selcted).getCar())).findAny().get();
+        int q=temp.getQuantity()+1;
+        if (q <= list.get(selcted).getQuantity()) {
+            temp.setQuantity(q);
+            cardQ[selcted%4].setText(String.valueOf(q));
+            loadTotalPrice();
+        }
     }
 
     @FXML
     void favList(ActionEvent event) {
-
-    }
-
-    @FXML
-    void goMian(ActionEvent event) {
-
+        Abdoll.goTo("favList",event);
     }
 
     @FXML
     void info(ActionEvent event) {
-        if(Abdoll.getCurrentAcc() instanceof customer){
-            Abdoll.goTo("customerInfo",event);
-        }else {
-            Abdoll.goTo("adminInfo",event);
-        }
+        Abdoll.goTo("customerInfo",event);
     }
 
     @FXML
-    void login(ActionEvent event) {
-        Abdoll.goTo("logIn",event);
+    void goMain(ActionEvent event) {
+        Abdoll.goTo("main",event);
     }
 
     @FXML
@@ -407,75 +383,161 @@ public class cardd {
     }
 
     @FXML
-    void minus(ActionEvent event) {
-
-    }
-
-    @FXML
-    void newList(ActionEvent event) {
-        Abdoll.goTo("newList",event);
+    void nextPage(ActionEvent event) {
+        page++;
+        loadPage();
     }
 
     @FXML
     void notif(ActionEvent event) {
-        if(Abdoll.getCurrentAcc()==null){
-            Abdoll.goTo("logIn", event);
+        Abdoll.goTo("userChat", event);
+        if(Abdoll.getCurrentAcc() instanceof customer)
+            ((customer) Abdoll.getCurrentAcc()).setNotification(false);
+    }
+
+    @FXML
+    void prePage(ActionEvent event) {
+        page--;
+        loadPage();
+    }
+
+    @FXML
+    void removeFromFavList(ActionEvent event) {
+        //
+        int selcted=select(event,20);
+        //
+        ((customer) Abdoll.getCurrentAcc()).removeFromFavouriteCard(list.get(selcted).getCar());
+        removeFromFavListB[selcted%4].setVisible(false);
+        addToFavB[selcted%4].setVisible(true);
+    }
+
+    int select(ActionEvent event,int longestNameLength){
+        int selcted=page*4;
+        String temp=((Button) event.getSource()).getId();
+        if(temp.charAt(temp.length()-1)=='1'){
+            if(temp.length()==longestNameLength)
+                selcted++;
+        } else if (temp.charAt(temp.length()-1)=='2') {
+            selcted+=2;
+        }else{
+            selcted+=3;
+        }
+        return selcted;
+    }
+
+    @FXML
+    void filter(ActionEvent event) {
+        if (brandListFilter.getValue().equals("All Cars")) {
+            list = Abdoll.getAllCars().stream().filter(o->tempList.contains(o.getCar())).collect(Collectors.toList());
+        }else{
+            list = Abdoll.getAllBrand().stream().filter(o -> o.getBrandName().equals(brandListFilter.getValue())).findAny().map(o -> o.getBrandList()).get();
+            list=list.stream().filter(o->tempList.contains(o.getCar())).collect(Collectors.toList());
+        }
+        //
+        if (!searchIn.getText().isEmpty())
+            list = list.stream().filter(o -> o.getCar().getName().contains(searchIn.getText())).collect(Collectors.toList());
+        //
+        if(list.size()>1){
+            if (detaileFilter.getValue() == filterOptions.NAME) {
+                if (sortOption == 'u') {
+                    list.sort((o1, o2) -> o1.getCar().getName().compareTo(o2.getCar().getName()));
+                } else {
+                    list.sort((o1, o2) -> o2.getCar().getName().compareTo(o1.getCar().getName()));
+                }
+            } else if (detaileFilter.getValue() == filterOptions.BRAND) {
+                if (sortOption == 'u') {
+                    list.sort((o1, o2) -> o1.getCar().getBrand().compareTo(o2.getCar().getBrand()));
+                } else {
+                    list.sort((o1, o2) -> o2.getCar().getBrand().compareTo(o1.getCar().getBrand()));
+                }
+            } else if (detaileFilter.getValue() == filterOptions.PRICE) {
+                if (sortOption == 'u') {
+                    list.sort(Comparator.comparing(o -> o.getCar().getPrice()));
+                } else {
+                    list.sort(Comparator.comparing(o -> o.getCar().getPrice()));
+                    List<carPack> temp = list;
+                    list = new ArrayList<>();
+                    temp.forEach(o -> list.addFirst(o));
+                }
+            } else if (detaileFilter.getValue() == filterOptions.QUANTITY) {
+                if (sortOption == 'u') {
+                    list.sort((o1, o2) -> o1.getQuantity() - o2.getQuantity());
+                } else {
+                    list.sort((o1, o2) -> o2.getQuantity() - o1.getQuantity());
+                }
+            } else if (detaileFilter.getValue() == filterOptions.YEAR) {
+                if (sortOption == 'u') {
+                    list.sort((o1, o2) -> o1.getCar().getYear() - o2.getCar().getYear());
+                } else {
+                    list.sort((o1, o2) -> o2.getCar().getYear() - o1.getCar().getYear());
+                }
+            }
+        }
+        //
+        if(onlyAv.isSelected()){
+            list=list.stream().filter(o->o.getCar().isAvailability()).toList();
+        }
+        firstIni();
+        resetPage();
+    }
+
+    @FXML
+    void sortUpOrDown(ActionEvent event) {
+        if(((Button) event.getSource()).getId().charAt(0)=='u'){
+            upSort.setVisible(false);
+            downSort.setVisible(true);
+            sortOption='u';
+        }else{
+            upSort.setVisible(true);
+            downSort.setVisible(false);
+            sortOption='d';
+        }
+        filter(event);
+    }
+
+    @FXML
+    void buy(ActionEvent event) {
+        List<carPack> card=((customer) Abdoll.getCurrentAcc()).getCard();
+        List<carPack> allCars=Abdoll.getAllCars();
+        boolean flag=true;
+        if(card.isEmpty()){
+            buyError.setText("صبد خرید خالی است");
         }else {
-            Abdoll.goTo("userChat", event);
+            for (int i = 0; flag && i < card.size(); i++) {
+                int finalI = i;
+                carPack pack=allCars.stream().filter(o->o.getCar().equals(card.get(finalI).getCar())).findAny().get();
+                if (card.get(i).getQuantity() > pack.getQuantity()) {
+                    flag = false;
+                    buyError.setText("تعداد خودرو ی" + card.get(i).getCar().getName() + "در انبار کم است");
+                } else if (!pack.getCar().isAvailability()) {
+                    flag = false;
+                    buyError.setText("خودرو ی" + card.get(i).getCar().getName() + "در انبار موجود نیست");
+                }
+            }
+            if (flag && ((customer) Abdoll.getCurrentAcc()).getBalance() >= TP) {
+                for(carPack packFromCard:card){
+                    carPack packInAllCars=allCars.stream().filter(o->o.getCar().equals(packFromCard.getCar())).findAny().get();
+                    int q=packInAllCars.getQuantity()-packFromCard.getQuantity();
+                    packInAllCars.setQuantity(q);
+                    if(q==0)
+                        packInAllCars.getCar().setAvailability(false);
+                    ((customer) Abdoll.getCurrentAcc()).addToPurchaseHistory(packFromCard);
+                    System.out.println(packFromCard);
+                }
+                ((customer) Abdoll.getCurrentAcc()).setCard(new ArrayList<>());
+                ((customer) Abdoll.getCurrentAcc()).setBalance((((customer) Abdoll.getCurrentAcc()).getBalance()-TP));
+                buyError.setText("خرید با موفقیت انجام شد");
+                Abdoll.goBack(event);
+            }else{
+                buyError.setText("پول نداری");
+            }
         }
     }
 
-    @FXML
-    void plus(ActionEvent event) {
-
+    void loadTotalPrice(){
+        TP=0;
+        for (carPack carPack : ((customer) Abdoll.getCurrentAcc()).getCard())
+            TP+=carPack.getCar().getPrice()*carPack.getQuantity();
+        totalPrice.setText(String.format("%,d",TP));
     }
-
-    @FXML
-    void search(ActionEvent event) {
-
-    }
-
-    @FXML
-    void nextPage(ActionEvent event) {
-        if ((carList.size() % 9 == 0&&page<carList.size()/9)||(carList.size() % 9 != 0&&page<carList.size()/9+1)) {
-            page++;
-            load();
-        }
-    }
-
-    @FXML
-    void backPage(ActionEvent event) {
-        if(page>1){
-            page--;
-            load();
-        }
-    }
-
-    void load(){
-        if(carList.size()>9*page){
-            thisPage=9;
-        }else {
-            thisPage=carList.size()-(9*(page-1));
-        }
-        int temp=0;
-        car car;
-        for(int i=9*(page-1);i<9*(page-1)+thisPage;i++){
-            stackPanes[temp].setVisible(true);
-            car=carList.get(i);
-            Image pic=new Image(car.getPicture().toURI().toString());
-            images[temp].setImage(pic);
-            names[temp].setText(car.getName());
-            prices[temp].setText(String.valueOf(car.getPrice()));
-            years[temp++].setText(String.valueOf(car.getYear()));
-        }
-    }
-    @FXML
-    void buyTheCard(ActionEvent event) {
-        error.setText(Abdoll.customerBuyTheCard());
-        System.out.println(error.getText());
-        if(error.getText().equals("خرید با موفقیت انجام شد")){
-            Abdoll.goTo("main",event);
-        }
-    }
-
 }

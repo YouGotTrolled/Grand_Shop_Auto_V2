@@ -45,12 +45,12 @@
                         <Insets top="30.0" />
                     </VBox.margin>
                 </Button>
-                <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#favList" prefHeight="59.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text=" لیست موردعلاقه  " textFill="WHITE">
+                <Button contentDisplay="RIGHT" mnemonicParsing="false" onAction="#history" prefHeight="59.0" prefWidth="347.0" style="-fx-background-color: #1E2C31;" styleClass="back-button3" stylesheets="@st.css" text="تاریخچه ی خرید" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="30.0" />
                     </font>
                     <graphic>
-                        <FontAwesomeIcon fill="WHITE" glyphName="HEART" />
+                        <FontAwesomeIcon fill="WHITE" glyphName="HISTORY" />
                     </graphic>
                     <VBox.margin>
                         <Insets top="30.0" />

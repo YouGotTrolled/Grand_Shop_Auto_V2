@@ -13,6 +13,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class GSA extends Application {
@@ -338,6 +339,9 @@ class customer extends accunt{
     }
     public void removeFromCard(carPack carPack){
         removeFromCard(carPack.getCar());
+    }
+    public void setCard(ArrayList<carPack> card){
+        this.card=card;
     }
     //Getter and Adder for purchaseHistory
     public ArrayList<carPack> getPurchaseHistory(){
@@ -1051,10 +1055,13 @@ class Abdoll {
                     int q=allCars.get(index[temp]).getQuantity()-card.getFirst().getQuantity();
                     allCars.get(index[temp]).setQuantity(q);
                     if(q==0){
-                        allCars.get(index[temp++]).getCar().setAvailability(false);
+                        allCars.get(index[temp]).getCar().setAvailability(false);
                     }
                     ((customer) currentAcc).addToPurchaseHistory(card.getFirst());
                     ((customer) currentAcc).removeFromCard(0);
+                    System.out.println(temp);
+                    System.out.println(allCars.get(index[temp]));
+                    temp++;
                 }
                 ((customer) currentAcc).setBalance(((customer) currentAcc).getBalance()-allPrice);
                 result="خرید با موفقیت انجام شد";
